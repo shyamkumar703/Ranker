@@ -7,7 +7,14 @@
 
 import Foundation
 
-class Ranking {
+protocol DictDecode {
+    associatedtype ProtocolType
+    var id: String { get set }
+    static func initRankingWith(dict: [String: Any]) -> ProtocolType
+}
+
+class Ranking: DictDecode {
+    
     var choices: [String: Int]
     var name: String
     var id: String
