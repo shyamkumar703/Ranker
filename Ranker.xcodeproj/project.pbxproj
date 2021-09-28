@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0114F5C626FFC95800498F9F /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114F5C526FFC95800498F9F /* Ranking.swift */; };
+		0114F5C826FFD7D000498F9F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114F5C726FFD7D000498F9F /* Utils.swift */; };
 		01AE71C726FEA38D006C1EFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71C626FEA38D006C1EFC /* AppDelegate.swift */; };
 		01AE71C926FEA38D006C1EFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71C826FEA38D006C1EFC /* SceneDelegate.swift */; };
 		01AE71CB26FEA38D006C1EFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71CA26FEA38D006C1EFC /* ViewController.swift */; };
@@ -15,6 +17,7 @@
 		01AE71DE26FEA39D006C1EFC /* RankerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71DD26FEA39D006C1EFC /* RankerTests.swift */; };
 		01AE71E926FEA39D006C1EFC /* RankerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71E826FEA39D006C1EFC /* RankerUITests.swift */; };
 		01AE71F726FEB0CA006C1EFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01AE71F626FEB0CA006C1EFC /* GoogleService-Info.plist */; };
+		01AE71FA26FEC36B006C1EFC /* FirebaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71F926FEC36B006C1EFC /* FirebaseAccess.swift */; };
 		20564B98A7FE4D1A8A74987C /* Pods_Ranker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED6F6B532A09D2C11559831 /* Pods_Ranker.framework */; };
 		6216E64B35EA8BD3F0D0ECF1 /* Pods_Ranker_RankerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC98ED9F488D7154BD5EB2A /* Pods_Ranker_RankerUITests.framework */; };
 		AC15D31AF9845D6A7247DE7B /* Pods_RankerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE6F44786958DD55873C3EC /* Pods_RankerTests.framework */; };
@@ -38,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0114F5C526FFC95800498F9F /* Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
+		0114F5C726FFD7D000498F9F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		01AE71C326FEA38D006C1EFC /* Ranker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ranker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01AE71C626FEA38D006C1EFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01AE71C826FEA38D006C1EFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +57,7 @@
 		01AE71E826FEA39D006C1EFC /* RankerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankerUITests.swift; sourceTree = "<group>"; };
 		01AE71EA26FEA39D006C1EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01AE71F626FEB0CA006C1EFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		01AE71F926FEC36B006C1EFC /* FirebaseAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAccess.swift; sourceTree = "<group>"; };
 		0BC6A3866D9067D01952069A /* Pods-Ranker-RankerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranker-RankerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Ranker-RankerUITests/Pods-Ranker-RankerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		0DC98ED9F488D7154BD5EB2A /* Pods_Ranker_RankerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ranker_RankerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39AEA4E33548B09D374732A1 /* Pods-Ranker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranker.debug.xcconfig"; path = "Target Support Files/Pods-Ranker/Pods-Ranker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0114F5C426FFC94200498F9F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0114F5C526FFC95800498F9F /* Ranking.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		01AE71BA26FEA38D006C1EFC = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +130,8 @@
 		01AE71C526FEA38D006C1EFC /* Ranker */ = {
 			isa = PBXGroup;
 			children = (
+				0114F5C426FFC94200498F9F /* Model */,
+				01AE71F826FEC33E006C1EFC /* Network */,
 				01AE71C626FEA38D006C1EFC /* AppDelegate.swift */,
 				01AE71C826FEA38D006C1EFC /* SceneDelegate.swift */,
 				01AE71CA26FEA38D006C1EFC /* ViewController.swift */,
@@ -123,6 +139,7 @@
 				01AE71D126FEA39C006C1EFC /* LaunchScreen.storyboard */,
 				01AE71D426FEA39C006C1EFC /* Info.plist */,
 				01AE71F626FEB0CA006C1EFC /* GoogleService-Info.plist */,
+				0114F5C726FFD7D000498F9F /* Utils.swift */,
 			);
 			path = Ranker;
 			sourceTree = "<group>";
@@ -145,6 +162,14 @@
 			path = RankerUITests;
 			sourceTree = "<group>";
 		};
+		01AE71F826FEC33E006C1EFC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				01AE71F926FEC36B006C1EFC /* FirebaseAccess.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		41EC9E1495D1F75E27CB54DE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +180,6 @@
 				657A368CEFC3C3616D6BA2CC /* Pods-RankerTests.debug.xcconfig */,
 				D149C1902FAA2DCDCDD47572 /* Pods-RankerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -409,7 +433,10 @@
 			files = (
 				01AE71CB26FEA38D006C1EFC /* ViewController.swift in Sources */,
 				01AE71C726FEA38D006C1EFC /* AppDelegate.swift in Sources */,
+				01AE71FA26FEC36B006C1EFC /* FirebaseAccess.swift in Sources */,
 				01AE71C926FEA38D006C1EFC /* SceneDelegate.swift in Sources */,
+				0114F5C626FFC95800498F9F /* Ranking.swift in Sources */,
+				0114F5C826FFD7D000498F9F /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
