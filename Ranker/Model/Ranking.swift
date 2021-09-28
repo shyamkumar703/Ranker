@@ -11,6 +11,7 @@ protocol DictDecode {
     associatedtype ProtocolType
     var id: String { get set }
     static func initRankingWith(dict: [String: Any]) -> ProtocolType
+    func objectToDict() -> [String: Any]
 }
 
 class Ranking: DictDecode {
@@ -42,4 +43,19 @@ class Ranking: DictDecode {
         Utils.unwrap(object: &ranking, paths: [\.name, \.id], dict["name"] as? String, dict["id"] as? String)
         Utils.unwrap(object: &ranking, paths: [\.choices], dict["choices"] as? [String: Int])
     }
+    
+    func objectToDict() -> ([String : Any]) {
+        let dict: [String: Any] = [
+            RankingKeys.choices.rawValue: choices,
+            RankingKeys.name.rawValue: name
+        ]
+        return dict
+    }
+}
+
+enum RankingKeys: String {
+    case choices
+    case name
+    
+    var key: String { rawValue }
 }

@@ -8,10 +8,6 @@
 import Foundation
 import FirebaseFirestore
 
-public class FirebaseAccess {
-    let db = Firestore.firestore()
-}
-
 extension Firestore  {
     func get<T>
     (
@@ -41,9 +37,7 @@ extension Firestore  {
     ) where T: DictDecode {
         
         collection(collectionName.name).getDocuments { querySnapshot, err in
-            if let err = err {
-                // Error handle here!
-                print(err)
+            if let _ = err {
                 completion(nil)
             } else {
                 if let querySnapshot = querySnapshot {
@@ -63,6 +57,20 @@ extension Firestore  {
                     }
                 }
             }
+        }
+    }
+    
+    func add<T>(
+        collectionName: Collections,
+        object: T,
+        completion: @escaping () -> Void
+    ) where T: DictDecode {
+        collection(collectionName.name).document(object.id).setData(object.objectToDict()) { err in
+            if let err = err {
+                print(err)
+                // error handle here
+            }
+            completion()
         }
     }
 }
