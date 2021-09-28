@@ -7,13 +7,6 @@
 
 import Foundation
 
-protocol DictDecode {
-    associatedtype ProtocolType
-    var id: String { get set }
-    static func initRankingWith(dict: [String: Any]) -> ProtocolType
-    func objectToDict() -> [String: Any]
-}
-
 class Ranking: DictDecode {
     
     var choices: [String: Int]
@@ -53,7 +46,7 @@ class Ranking: DictDecode {
     }
 }
 
-enum RankingKeys: String {
+enum RankingKeys: String, KeyProtocol {
     case choices
     case name
     
