@@ -77,6 +77,10 @@ extension Firestore  {
     func update<Key, Value>(collectionName: Collections, document: String, keyName: Key, value: Value) where Key: KeyProtocol, Value: Codable {
         collection(collectionName.name).document(document).setData([keyName.key: value], merge: true)
     }
+    
+    func delete(collectionName: Collections, document: String) {
+        collection(collectionName.name).document(document).delete()
+    }
 }
 
 enum Collections: String {

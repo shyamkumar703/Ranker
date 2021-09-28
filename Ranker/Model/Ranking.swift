@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Ranking: DictDecode {
+class Ranking: DictDecode, Codable {
     
     var choices: [String: Int]
     var name: String
