@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class Ranking: DictDecode, Codable {
     
@@ -22,11 +23,12 @@ class Ranking: DictDecode, Codable {
     convenience init(choices: [String : Int] = [:], name: String = "", id: String = UUID().uuidString, pushToFirebase: Bool = false) {
         self.init(choices: choices, name: name, id: id)
         if pushToFirebase {
-            // Add to firebase here
+            let db = Firestore.firestore()
+            db.add(collectionName: .rankings, object: self) { return }
         }
     }
     
-    static func initRankingWith(dict: [String: Any]) -> Ranking {
+    static func initWith(dict: [String: Any]) -> Ranking {
         var ranking = Ranking()
         Ranking.unwrap(ranking: &ranking, dict: dict)
         return ranking

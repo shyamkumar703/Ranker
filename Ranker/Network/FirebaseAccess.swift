@@ -21,7 +21,7 @@ extension Firestore  {
             if let document = document,
                document.exists,
                let data = document.data() {
-                if var decode = T.self.initRankingWith(dict: data) as? T {
+                if var decode = T.self.initWith(dict: data) as? T {
                     decode.id = documentName
                     completion(decode)
                 }
@@ -47,7 +47,7 @@ extension Firestore  {
                         let document = documents[index]
                         let id = document.documentID
                         let data = document.data()
-                        if var decode = T.self.initRankingWith(dict: data) as? T {
+                        if var decode = T.self.initWith(dict: data) as? T {
                             decode.id = id
                             decoded.append(decode)
                             if decoded.count == documents.count {
@@ -76,6 +76,10 @@ extension Firestore  {
     
     func update<Key, Value>(collectionName: Collections, document: String, keyName: Key, value: Value) where Key: KeyProtocol, Value: Codable {
         collection(collectionName.name).document(document).setData([keyName.key: value], merge: true)
+    }
+    
+    func update<T>(collectionName: Collections, object: T) where T: DictDecode {
+        collection(collectionName.name).document(object.id).setData(object.objectToDict())
     }
     
     func delete(collectionName: Collections, document: String) {

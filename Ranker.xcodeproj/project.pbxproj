@@ -10,6 +10,8 @@
 		0114F5C626FFC95800498F9F /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114F5C526FFC95800498F9F /* Ranking.swift */; };
 		0114F5C826FFD7D000498F9F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114F5C726FFD7D000498F9F /* Utils.swift */; };
 		015309382703B6DE00D10B7B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015309372703B6DE00D10B7B /* Protocols.swift */; };
+		0153093A2703BF4F00D10B7B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015309392703BF4F00D10B7B /* User.swift */; };
+		0153093C2703C08800D10B7B /* VoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153093B2703C08800D10B7B /* VoteData.swift */; };
 		01AE71C726FEA38D006C1EFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71C626FEA38D006C1EFC /* AppDelegate.swift */; };
 		01AE71C926FEA38D006C1EFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71C826FEA38D006C1EFC /* SceneDelegate.swift */; };
 		01AE71CB26FEA38D006C1EFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71CA26FEA38D006C1EFC /* ViewController.swift */; };
@@ -45,6 +47,8 @@
 		0114F5C526FFC95800498F9F /* Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		0114F5C726FFD7D000498F9F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		015309372703B6DE00D10B7B /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		015309392703BF4F00D10B7B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0153093B2703C08800D10B7B /* VoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteData.swift; sourceTree = "<group>"; };
 		01AE71C326FEA38D006C1EFC /* Ranker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ranker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01AE71C626FEA38D006C1EFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01AE71C826FEA38D006C1EFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 			children = (
 				0114F5C526FFC95800498F9F /* Ranking.swift */,
 				015309372703B6DE00D10B7B /* Protocols.swift */,
+				015309392703BF4F00D10B7B /* User.swift */,
+				0153093B2703C08800D10B7B /* VoteData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -438,6 +444,8 @@
 				01AE71C726FEA38D006C1EFC /* AppDelegate.swift in Sources */,
 				015309382703B6DE00D10B7B /* Protocols.swift in Sources */,
 				01AE71FA26FEC36B006C1EFC /* FirebaseAccess.swift in Sources */,
+				0153093A2703BF4F00D10B7B /* User.swift in Sources */,
+				0153093C2703C08800D10B7B /* VoteData.swift in Sources */,
 				01AE71C926FEA38D006C1EFC /* SceneDelegate.swift in Sources */,
 				0114F5C626FFC95800498F9F /* Ranking.swift in Sources */,
 				0114F5C826FFD7D000498F9F /* Utils.swift in Sources */,

@@ -14,5 +14,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
+        
+        let db = Firestore.firestore()
+        db.add(collectionName: .users, object: User(username: "jabrahams")) {}
     }
 }
