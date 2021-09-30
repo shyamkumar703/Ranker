@@ -9,13 +9,21 @@ import UIKit
 import FirebaseFirestore
 
 class ViewController: UIViewController {
+    
+    lazy var testView: ChoiceView = {
+        let button = ChoiceView()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
-        
-        let db = Firestore.firestore()
-        db.add(collectionName: .users, object: User(username: "jabrahams")) {}
+        view.addSubview(testView)
+        testView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        testView.centerYAnchor.constraint(lessThanOrEqualTo: view.centerYAnchor).isActive = true
+        testView.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        testView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
     }
 }

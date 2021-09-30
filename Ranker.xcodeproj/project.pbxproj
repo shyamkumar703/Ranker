@@ -12,6 +12,11 @@
 		015309382703B6DE00D10B7B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015309372703B6DE00D10B7B /* Protocols.swift */; };
 		0153093A2703BF4F00D10B7B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015309392703BF4F00D10B7B /* User.swift */; };
 		0153093C2703C08800D10B7B /* VoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153093B2703C08800D10B7B /* VoteData.swift */; };
+		01A6F353270575E000E561A0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A6F352270575E000E561A0 /* Colors.swift */; };
+		01A6F356270577B500E561A0 /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01A6F355270577B500E561A0 /* Proxima Nova Bold.otf */; };
+		01A6F358270577C600E561A0 /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01A6F357270577C600E561A0 /* ProximaNova-Regular.otf */; };
+		01A6F35A2705780A00E561A0 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A6F3592705780A00E561A0 /* Fonts.swift */; };
+		01A6F35D27057A7900E561A0 /* ChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A6F35C27057A7900E561A0 /* ChoiceView.swift */; };
 		01AE71C726FEA38D006C1EFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71C626FEA38D006C1EFC /* AppDelegate.swift */; };
 		01AE71C926FEA38D006C1EFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71C826FEA38D006C1EFC /* SceneDelegate.swift */; };
 		01AE71CB26FEA38D006C1EFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71CA26FEA38D006C1EFC /* ViewController.swift */; };
@@ -49,6 +54,11 @@
 		015309372703B6DE00D10B7B /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		015309392703BF4F00D10B7B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0153093B2703C08800D10B7B /* VoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteData.swift; sourceTree = "<group>"; };
+		01A6F352270575E000E561A0 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		01A6F355270577B500E561A0 /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
+		01A6F357270577C600E561A0 /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
+		01A6F3592705780A00E561A0 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		01A6F35C27057A7900E561A0 /* ChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceView.swift; sourceTree = "<group>"; };
 		01AE71C326FEA38D006C1EFC /* Ranker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ranker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01AE71C626FEA38D006C1EFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01AE71C826FEA38D006C1EFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +124,34 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		01A6F351270575CB00E561A0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				01A6F354270577A100E561A0 /* Fonts */,
+				01A6F352270575E000E561A0 /* Colors.swift */,
+				01A6F3592705780A00E561A0 /* Fonts.swift */,
+				0114F5C726FFD7D000498F9F /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		01A6F354270577A100E561A0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				01A6F355270577B500E561A0 /* Proxima Nova Bold.otf */,
+				01A6F357270577C600E561A0 /* ProximaNova-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		01A6F35B27057A6600E561A0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				01A6F35C27057A7900E561A0 /* ChoiceView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		01AE71BA26FEA38D006C1EFC = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +177,8 @@
 		01AE71C526FEA38D006C1EFC /* Ranker */ = {
 			isa = PBXGroup;
 			children = (
+				01A6F35B27057A6600E561A0 /* Views */,
+				01A6F351270575CB00E561A0 /* Utils */,
 				0114F5C426FFC94200498F9F /* Model */,
 				01AE71F826FEC33E006C1EFC /* Network */,
 				01AE71C626FEA38D006C1EFC /* AppDelegate.swift */,
@@ -148,7 +188,6 @@
 				01AE71D126FEA39C006C1EFC /* LaunchScreen.storyboard */,
 				01AE71D426FEA39C006C1EFC /* Info.plist */,
 				01AE71F626FEB0CA006C1EFC /* GoogleService-Info.plist */,
-				0114F5C726FFD7D000498F9F /* Utils.swift */,
 			);
 			path = Ranker;
 			sourceTree = "<group>";
@@ -311,6 +350,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				01AE71F726FEB0CA006C1EFC /* GoogleService-Info.plist in Resources */,
+				01A6F358270577C600E561A0 /* ProximaNova-Regular.otf in Resources */,
+				01A6F356270577B500E561A0 /* Proxima Nova Bold.otf in Resources */,
 				01AE71D326FEA39C006C1EFC /* LaunchScreen.storyboard in Resources */,
 				01AE71D026FEA39C006C1EFC /* Assets.xcassets in Resources */,
 			);
@@ -441,12 +482,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				01AE71CB26FEA38D006C1EFC /* ViewController.swift in Sources */,
+				01A6F35D27057A7900E561A0 /* ChoiceView.swift in Sources */,
+				01A6F353270575E000E561A0 /* Colors.swift in Sources */,
 				01AE71C726FEA38D006C1EFC /* AppDelegate.swift in Sources */,
 				015309382703B6DE00D10B7B /* Protocols.swift in Sources */,
 				01AE71FA26FEC36B006C1EFC /* FirebaseAccess.swift in Sources */,
 				0153093A2703BF4F00D10B7B /* User.swift in Sources */,
 				0153093C2703C08800D10B7B /* VoteData.swift in Sources */,
 				01AE71C926FEA38D006C1EFC /* SceneDelegate.swift in Sources */,
+				01A6F35A2705780A00E561A0 /* Fonts.swift in Sources */,
 				0114F5C626FFC95800498F9F /* Ranking.swift in Sources */,
 				0114F5C826FFD7D000498F9F /* Utils.swift in Sources */,
 			);
