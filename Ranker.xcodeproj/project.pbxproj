@@ -27,6 +27,8 @@
 		01AE71F726FEB0CA006C1EFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01AE71F626FEB0CA006C1EFC /* GoogleService-Info.plist */; };
 		01AE71FA26FEC36B006C1EFC /* FirebaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71F926FEC36B006C1EFC /* FirebaseAccess.swift */; };
 		01D2A00927064FB30080E03B /* RankNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2A00827064FB30080E03B /* RankNumberView.swift */; };
+		01D2A00B270651B40080E03B /* SelectedChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2A00A270651B40080E03B /* SelectedChoiceView.swift */; };
+		01D2A00D270652030080E03B /* ChoiceButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2A00C270652030080E03B /* ChoiceButtonView.swift */; };
 		20564B98A7FE4D1A8A74987C /* Pods_Ranker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED6F6B532A09D2C11559831 /* Pods_Ranker.framework */; };
 		6216E64B35EA8BD3F0D0ECF1 /* Pods_Ranker_RankerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC98ED9F488D7154BD5EB2A /* Pods_Ranker_RankerUITests.framework */; };
 		AC15D31AF9845D6A7247DE7B /* Pods_RankerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE6F44786958DD55873C3EC /* Pods_RankerTests.framework */; };
@@ -76,6 +78,8 @@
 		01AE71F626FEB0CA006C1EFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01AE71F926FEC36B006C1EFC /* FirebaseAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAccess.swift; sourceTree = "<group>"; };
 		01D2A00827064FB30080E03B /* RankNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankNumberView.swift; sourceTree = "<group>"; };
+		01D2A00A270651B40080E03B /* SelectedChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedChoiceView.swift; sourceTree = "<group>"; };
+		01D2A00C270652030080E03B /* ChoiceButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceButtonView.swift; sourceTree = "<group>"; };
 		0BC6A3866D9067D01952069A /* Pods-Ranker-RankerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranker-RankerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Ranker-RankerUITests/Pods-Ranker-RankerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		0DC98ED9F488D7154BD5EB2A /* Pods_Ranker_RankerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ranker_RankerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39AEA4E33548B09D374732A1 /* Pods-Ranker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranker.debug.xcconfig"; path = "Target Support Files/Pods-Ranker/Pods-Ranker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 			children = (
 				01A6F35C27057A7900E561A0 /* ChoiceView.swift */,
 				01D2A00827064FB30080E03B /* RankNumberView.swift */,
+				01D2A00A270651B40080E03B /* SelectedChoiceView.swift */,
+				01D2A00C270652030080E03B /* ChoiceButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -496,6 +502,8 @@
 				01A6F35A2705780A00E561A0 /* Fonts.swift in Sources */,
 				01D2A00927064FB30080E03B /* RankNumberView.swift in Sources */,
 				0114F5C626FFC95800498F9F /* Ranking.swift in Sources */,
+				01D2A00D270652030080E03B /* ChoiceButtonView.swift in Sources */,
+				01D2A00B270651B40080E03B /* SelectedChoiceView.swift in Sources */,
 				0114F5C826FFD7D000498F9F /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

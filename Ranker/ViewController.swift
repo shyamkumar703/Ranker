@@ -12,6 +12,12 @@ class ViewController: UIViewController {
     
     lazy var testView: ChoiceView = {
         let button = ChoiceView()
+        let model = ChoiceViewModel(
+            choiceTitle: "Avengers: Endgame",
+            choiceSelection: { 2 },
+            percentFirstChoice: 0.2
+        )
+        button.model = model
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
