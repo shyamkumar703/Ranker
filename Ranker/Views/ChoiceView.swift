@@ -27,7 +27,7 @@ class ChoiceView: UIView {
     
     lazy var selectedChoice: SelectedChoiceView = {
         let view = SelectedChoiceView()
-        let model = SelectedChoiceVieWModel(rank: 1, percent: 0.4)
+        let model = SelectedChoiceVieWModel(rank: 1, percent: 0.33)
         view.model = model
         view.translatesAutoresizingMaskIntoConstraints = false
         view.alpha = 0
@@ -178,6 +178,60 @@ class SelectedChoiceView: UIView {
         return view
     }()
     
+    lazy var outerStack: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.distribution = .equalSpacing
+        
+        stack.addArrangedSubview(innerStack)
+        stack.addArrangedSubview(percentageLabel)
+        return stack
+    }()
+    
+    lazy var innerStack: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.spacing = 8
+        
+        stack.addArrangedSubview(choiceRankLabel)
+        stack.addArrangedSubview(choiceLabel)
+//        stack.addArrangedSubview(choiceColorView)
+        return stack
+    }()
+    
+    lazy var choiceRankLabel: UILabel = {
+        let label = UILabel()
+        label.font = .boldFont.withSize(12)
+        label.textColor = .choiceBlue
+        return label
+    }()
+    
+    lazy var choiceLabel: UILabel = {
+        let label = UILabel()
+        label.font = .regularFont.withSize(12)
+        label.textColor = .black
+        return label
+    }()
+    
+    lazy var choiceColorView: UIView = {
+        let view = UIView()
+        view.heightAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        view.widthAnchor.constraint(equalToConstant: 12).isActive = true
+        view.layer.cornerRadius = 6
+        view.backgroundColor = .firstRed
+        return view
+    }()
+    
+    lazy var percentageLabel: UILabel = {
+        let label = UILabel()
+        label.font = .boldFont.withSize(12)
+        label.textColor = .black
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -190,12 +244,18 @@ class SelectedChoiceView: UIView {
     
     func setupView() {
         addSubview(animatedView)
+        addSubview(outerStack)
     }
     
     func setupConstraints() {
         animatedView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         animatedView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         animatedView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
+        outerStack.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
+        outerStack.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        outerStack.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        outerStack.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     func animate() {
@@ -206,5 +266,8 @@ class SelectedChoiceView: UIView {
     }
     
     func updateView() {
+        percentageLabel.text = "10%"
+        choiceLabel.text = "Avatar"
+        choiceRankLabel.text = "1"
     }
 }
