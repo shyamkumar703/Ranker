@@ -194,19 +194,11 @@ class SelectedChoiceView: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.distribution = .fill
-        stack.spacing = 8
+        stack.spacing = 12
         
-        stack.addArrangedSubview(choiceRankLabel)
         stack.addArrangedSubview(choiceLabel)
-//        stack.addArrangedSubview(choiceColorView)
+        stack.addArrangedSubview(choiceColorView)
         return stack
-    }()
-    
-    lazy var choiceRankLabel: UILabel = {
-        let label = UILabel()
-        label.font = .boldFont.withSize(12)
-        label.textColor = .choiceBlue
-        return label
     }()
     
     lazy var choiceLabel: UILabel = {
@@ -216,12 +208,10 @@ class SelectedChoiceView: UIView {
         return label
     }()
     
-    lazy var choiceColorView: UIView = {
-        let view = UIView()
-        view.heightAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        view.widthAnchor.constraint(equalToConstant: 12).isActive = true
-        view.layer.cornerRadius = 6
-        view.backgroundColor = .firstRed
+    lazy var choiceColorView: RankNumberView = {
+        let view = RankNumberView()
+        let model = RankNumberViewModel()
+        view.model = model
         return view
     }()
     
@@ -268,6 +258,5 @@ class SelectedChoiceView: UIView {
     func updateView() {
         percentageLabel.text = "10%"
         choiceLabel.text = "Avatar"
-        choiceRankLabel.text = "1"
     }
 }
