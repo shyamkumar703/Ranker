@@ -10,16 +10,16 @@ import FirebaseFirestore
 
 class ViewController: UIViewController {
     
-    lazy var testView: ChoiceView = {
-        let button = ChoiceView()
-        let model = ChoiceViewModel(
+    lazy var testView: PollView = {
+        let view = PollView()
+        let choiceModel = ChoiceViewModel(
             choiceTitle: "Avengers: Endgame",
-            choiceSelection: { 2 },
             percentFirstChoice: 0.2
         )
-        button.model = model
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+        let model = PollViewModel(username: "jabrahams", votesCast: 127, pollTitle: "Top Three Movies", choices: [choiceModel, choiceModel, choiceModel, choiceModel, choiceModel, choiceModel])
+        view.model = model
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
 
     override func viewDidLoad() {
@@ -28,8 +28,7 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(testView)
         testView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        testView.centerYAnchor.constraint(lessThanOrEqualTo: view.centerYAnchor).isActive = true
-        testView.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        testView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         testView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
     }
 }

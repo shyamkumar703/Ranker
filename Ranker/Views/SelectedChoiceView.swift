@@ -121,12 +121,12 @@ class SelectedChoiceView: UIView {
         percentageLabel.text = "\(Int(round(model.percent * 100)))%"
         choiceLabel.text = model.choiceName
         choiceColorView.model.rankNumber = model.rank
-        switch(model.rank % 3) {
-        case 1:
+        switch((model.rank - 1) % 3) {
+        case 0:
             choiceColorView.model.rankColor = .firstRed
-        case 2:
+        case 1:
             choiceColorView.model.rankColor = .secondTeal
-        case 3:
+        case 2:
             choiceColorView.model.rankColor = .thirdPurple
         default:
             return
