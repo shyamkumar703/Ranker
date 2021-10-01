@@ -82,6 +82,7 @@ class PollView: UIView {
         label.font = .boldFont.withSize(15)
         label.textColor = .black
         label.textAlignment = .left
+        label.numberOfLines = 2
         return label
     }()
     
