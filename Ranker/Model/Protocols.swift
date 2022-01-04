@@ -16,6 +16,6 @@ protocol KeyProtocol {
 protocol DictDecode {
     associatedtype ProtocolType
     var id: String { get set }
-    static func initWith(dict: [String: Any]) -> ProtocolType
+    static func initWith(dict: [String: Any]) -> ProtocolType?
     func objectToDict() -> [String: Any]
 }

@@ -8,6 +8,13 @@
 import UIKit
 import Firebase
 
+enum UID: String {
+    case uid
+}
+
+var uid: String?
+var maxLocalDistance: Double = 5
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        let defaults = UserDefaults.standard
+        
+        // get UID
+        if let retUID = defaults.object(forKey: UID.uid.rawValue) as? String  {
+            uid = retUID
+        } else {
+            uid = UUID().uuidString
+            defaults.set(uid, forKey: UID.uid.rawValue)
+        }
+        
         return true
     }
 

@@ -5,29 +5,162 @@
 //  Created by Shyam Kumar on 9/24/21.
 //
 
+import FirebaseFirestore
 import XCTest
 @testable import Ranker
 
 class RankerTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    // MARK: - TEST UID GET/SET
+    func testUID() {
+        XCTAssertNotNil(uid)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    // MARK: - TEST MODEL
+    func testAddGetDelete() {
+        if let sut = generateSUT() {
+            let db = Firestore.firestore()
+            let expectation = XCTestExpectation(description: "Waiting for add...")
+            db.add(collectionName: .polls, object: sut, completion: {
+                expectation.fulfill()
+            })
+            
+            wait(for: [expectation], timeout: 10)
+            
+            let fetchExpectation = XCTestExpectation(description: "Waiting for fetch...")
+            db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { [self] polls in
+                if let polls = polls {
+                    if let decodedSUT = polls.last {
+                        checkEquality(left: sut, right: decodedSUT)
+                        fetchExpectation.fulfill()
+                    }
+                } else {
+                    XCTFail("Could not retrieve polls.")
+                }
+            })
+            
+            wait(for: [fetchExpectation], timeout: 10)
+            
+            db.delete(collectionName: .polls, document: sut.id)
+            
+            let checkForDeletedDocumentExpectation = XCTestExpectation(description: "Waiting...")
+            db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { [self] polls in
+                if let polls = polls {
+                    if let _ = getMatchingObj(arr: polls, obj: sut) {
+                        XCTFail("Found deleted object")
+                    }
+                }
+                checkForDeletedDocumentExpectation.fulfill()
+            })
+            
+            wait(for: [checkForDeletedDocumentExpectation], timeout: 10)
         }
     }
+    
+    func testAddVote() {
+        if let sut = generateSUT() {
+            let db = Firestore.firestore()
+            let expectation = XCTestExpectation(description: "Waiting for add...")
+            db.add(collectionName: .polls, object: sut, completion: {
+                let vote = Vote(id: UUID().uuidString, data: [
+                    "1": sut.choices[1],
+                    "2": sut.choices[0]
+                ])
+                sut.addVote(vote: vote)
+                db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { [self] polls in
+                    if let polls = polls {
+                        if let poll = getMatchingObj(arr: polls, obj: sut) {
+                            checkEquality(left: sut, right: poll)
+                        }
+                    }
+                    expectation.fulfill()
+                })
+            })
+            
+            wait(for: [expectation], timeout: 10)
+        }
+    }
+    
+    func testTimeSincePost() {
+        let db = Firestore.firestore()
+        let expectation = XCTestExpectation(description: "Waiting for fetch...")
+        db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { polls in
+            if let polls = polls {
+                for poll in polls {
+                    print(poll.getTimeSincePost())
+                }
+            }
+            expectation.fulfill()
+        })
+        wait(for: [expectation], timeout: 10)
+    }
+}
 
+extension RankerTests {
+    func generateSUT() -> Poll? {
+        let pc1 = PollChoice(
+            id: UUID().uuidString,
+            title: "Talladega Nights",
+            color: Color.red.rawValue
+        )
+        let pc2 = PollChoice(
+            id: UUID().uuidString,
+            title: "Superbad",
+            color: Color.blue.rawValue
+        )
+        
+        if let uid = uid {
+            return Poll(
+                postedBy: uid,
+                question: "How do you rank these 5 movies?",
+                choices: [
+                    pc1,
+                    pc2
+                ],
+                date: Date(),
+                votes: [
+                    Vote(
+                        id: uid,
+                        data: [
+                            "1": pc1,
+                            "2": pc2
+                        ]
+                    )
+                ]
+            )
+        } else {
+            XCTFail("Could not get user id")
+            return nil
+        }
+    }
+    
+    func checkEquality(left: Poll, right: Poll) {
+        XCTAssertEqual(left.postedBy, right.postedBy)
+        XCTAssertEqual(left.id, right.id)
+        XCTAssertEqual(left.question, right.question)
+        
+        for choice in left.choices {
+            checkEquality(left: choice, right: getMatchingObj(arr: right.choices, obj: choice) ?? PollChoice())
+        }
+        for vote in right.votes {
+            checkEquality(left: vote, right: getMatchingObj(arr: right.votes, obj: vote))
+        }
+    }
+    
+    func checkEquality(left: Vote?, right: Vote?) {
+        XCTAssertEqual(left?.id, right?.id)
+        for (key, val) in ((left?.data) ?? [:]) {
+            checkEquality(left: val, right: right?.data[key] ?? PollChoice())
+        }
+    }
+    
+    func checkEquality(left: PollChoice, right: PollChoice) {
+        XCTAssertEqual(left.id, right.id)
+        XCTAssertEqual(left.title, left.title)
+        XCTAssertEqual(left.color, right.color)
+    }
+    
+    func getMatchingObj<T: Identifiable>(arr: [T], obj: T) -> T? {
+        return arr.filter({ $0.id == obj.id }).first
+    }
 }

@@ -55,6 +55,7 @@ extension Firestore  {
                             }
                         }
                     }
+                    completion([])
                 }
             }
         }
@@ -88,8 +89,7 @@ extension Firestore  {
 }
 
 enum Collections: String {
-    case users
-    case rankings
+    case polls
     
     var name: String { rawValue }
 }
