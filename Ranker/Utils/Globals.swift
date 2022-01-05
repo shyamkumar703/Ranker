@@ -14,3 +14,7 @@ func feedback() {
     feedbackGenerator.prepare()
     feedbackGenerator.impactOccurred()
 }
+
+protocol Reloadable {
+    func reload(completion: @escaping () -> Void)
+}

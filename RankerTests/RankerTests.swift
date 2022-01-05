@@ -147,19 +147,7 @@ extension RankerTests {
                     pc4,
                     pc5
                 ],
-                date: Date(),
-                votes: [
-                    Vote(
-                        id: uid,
-                        data: [
-                            "1": pc1,
-                            "2": pc2,
-                            "3": pc3,
-                            "4": pc4,
-                            "5": pc5
-                        ]
-                    )
-                ]
+                date: Date()
             )
         } else {
             XCTFail("Could not get user id")

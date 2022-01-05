@@ -25,6 +25,8 @@ class FeedTableView: UIView {
         }
     }
     
+    var cellDelegate: CellDelegate?
+    
     lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.translatesAutoresizingMaskIntoConstraints = false
@@ -75,12 +77,17 @@ extension FeedTableView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? PollCell {
+            cell.delegate = cellDelegate
             cell.model = model.polls[indexPath.row]
             cell.selectionStyle = .none
             return cell
         }
         return UITableViewCell()
     }
+}
+
+protocol CellDelegate {
+    func voteTapped(poll: Poll)
 }
 
 class PollCell: UITableViewCell {
@@ -90,6 +97,8 @@ class PollCell: UITableViewCell {
             updateView()
         }
     }
+    
+    var delegate: CellDelegate?
     
     lazy var outerStack: UIStackView = {
         let stack = UIStackView()
@@ -182,7 +191,7 @@ class PollCell: UITableViewCell {
         case .open:
             label.text = "Vote on this poll..."
             label.isUserInteractionEnabled = true
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapVote))
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(voteTapped))
             label.addGestureRecognizer(tapGesture)
         case .voted:
             label.text = "You've already voted on this poll."
@@ -200,8 +209,8 @@ class PollCell: UITableViewCell {
         outerStack.addArrangedSubview(detailsStack)
     }
     
-    @objc func didTapVote() {
-        feedback()
+    @objc func voteTapped() {
+        delegate?.voteTapped(poll: model)
     }
     
     override func prepareForReuse() {

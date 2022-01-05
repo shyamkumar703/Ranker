@@ -48,6 +48,7 @@ class ViewController: UIViewController {
     lazy var feedTable: FeedTableView = {
         let table = FeedTableView()
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.cellDelegate = self
         let db = Firestore.firestore()
         db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { polls in
             if let polls = polls {
@@ -155,7 +156,7 @@ extension ViewController: CLLocationManagerDelegate {
     }
 }
 
-extension ViewController: TapHandler {
+extension ViewController: TapHandler, CellDelegate {
     var handleTap: Selector {
         get {
             return #selector(tapHandler)
@@ -164,5 +165,23 @@ extension ViewController: TapHandler {
     
     @objc func tapHandler() {
         feedback()
+    }
+    
+    func voteTapped(poll: Poll) {
+        let vc = VoteViewController()
+        vc.model = VoteViewControllerModel(poll: poll)
+        present(vc, animated: true, completion: nil)
+    }
+}
+
+extension ViewController: Reloadable {
+    func reload(completion: @escaping () -> Void) {
+        let db = Firestore.firestore()
+        db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { polls in
+            if let polls = polls {
+                self.feedTable.model = FeedTableViewModel(polls: polls.sorted(by: {$0.date > $1.date}))
+                completion()
+            }
+        })
     }
 }
