@@ -28,6 +28,7 @@
 	<array>
 		<string>ProximaNova-Regular.otf</string>
 		<string>Proxima Nova Bold.otf</string>
+		<string>Varela-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

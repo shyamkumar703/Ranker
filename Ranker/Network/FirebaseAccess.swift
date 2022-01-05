@@ -52,6 +52,7 @@ extension Firestore  {
                             decoded.append(decode)
                             if decoded.count == documents.count {
                                 completion(decoded)
+                                return
                             }
                         }
                     }

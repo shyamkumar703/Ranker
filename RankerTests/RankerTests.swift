@@ -17,6 +17,18 @@ class RankerTests: XCTestCase {
     }
     
     // MARK: - TEST MODEL
+    func testAdd() {
+        if let sut = generateSUT() {
+            let db = Firestore.firestore()
+            let expectation = XCTestExpectation(description: "Waiting for add...")
+            db.add(collectionName: .polls, object: sut, completion: {
+                expectation.fulfill()
+            })
+            
+            wait(for: [expectation], timeout: 10)
+        }
+    }
+    
     func testAddGetDelete() {
         if let sut = generateSUT() {
             let db = Firestore.firestore()
@@ -108,6 +120,21 @@ extension RankerTests {
             title: "Superbad",
             color: Color.blue.rawValue
         )
+        let pc3 = PollChoice(
+            id: UUID().uuidString,
+            title: "Borat 1",
+            color: Color.pink.rawValue
+        )
+        let pc4 = PollChoice(
+            id: UUID().uuidString,
+            title: "Borat 2",
+            color: Color.purple.rawValue
+        )
+        let pc5 = PollChoice(
+            id: UUID().uuidString,
+            title: "The Dictator",
+            color: Color.teal.rawValue
+        )
         
         if let uid = uid {
             return Poll(
@@ -115,7 +142,10 @@ extension RankerTests {
                 question: "How do you rank these 5 movies?",
                 choices: [
                     pc1,
-                    pc2
+                    pc2,
+                    pc3,
+                    pc4,
+                    pc5
                 ],
                 date: Date(),
                 votes: [
@@ -123,7 +153,10 @@ extension RankerTests {
                         id: uid,
                         data: [
                             "1": pc1,
-                            "2": pc2
+                            "2": pc2,
+                            "3": pc3,
+                            "4": pc4,
+                            "5": pc5
                         ]
                     )
                 ]

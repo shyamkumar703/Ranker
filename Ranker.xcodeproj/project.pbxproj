@@ -10,6 +10,11 @@
 		0114F5C826FFD7D000498F9F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114F5C726FFD7D000498F9F /* Utils.swift */; };
 		015309382703B6DE00D10B7B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015309372703B6DE00D10B7B /* Protocols.swift */; };
 		0153093C2703C08800D10B7B /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153093B2703C08800D10B7B /* Vote.swift */; };
+		0163293C2784F8F60050A006 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0163293B2784F8F60050A006 /* NavigationBar.swift */; };
+		0163293E278501220050A006 /* Varela-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0163293D278501220050A006 /* Varela-Regular.ttf */; };
+		01632940278502A40050A006 /* FeedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0163293F278502A40050A006 /* FeedTableView.swift */; };
+		01632942278516230050A006 /* FAB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01632941278516230050A006 /* FAB.swift */; };
+		0163294427851D010050A006 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0163294327851D010050A006 /* Globals.swift */; };
 		01A6F353270575E000E561A0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A6F352270575E000E561A0 /* Colors.swift */; };
 		01A6F356270577B500E561A0 /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01A6F355270577B500E561A0 /* Proxima Nova Bold.otf */; };
 		01A6F358270577C600E561A0 /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01A6F357270577C600E561A0 /* ProximaNova-Regular.otf */; };
@@ -51,6 +56,11 @@
 		0114F5C726FFD7D000498F9F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		015309372703B6DE00D10B7B /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		0153093B2703C08800D10B7B /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
+		0163293B2784F8F60050A006 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		0163293D278501220050A006 /* Varela-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Varela-Regular.ttf"; sourceTree = "<group>"; };
+		0163293F278502A40050A006 /* FeedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableView.swift; sourceTree = "<group>"; };
+		01632941278516230050A006 /* FAB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAB.swift; sourceTree = "<group>"; };
+		0163294327851D010050A006 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		01A6F352270575E000E561A0 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		01A6F355270577B500E561A0 /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
 		01A6F357270577C600E561A0 /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
@@ -129,6 +139,7 @@
 				01A6F352270575E000E561A0 /* Colors.swift */,
 				01A6F3592705780A00E561A0 /* Fonts.swift */,
 				0114F5C726FFD7D000498F9F /* Utils.swift */,
+				0163294327851D010050A006 /* Globals.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -138,6 +149,7 @@
 			children = (
 				01A6F355270577B500E561A0 /* Proxima Nova Bold.otf */,
 				01A6F357270577C600E561A0 /* ProximaNova-Regular.otf */,
+				0163293D278501220050A006 /* Varela-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -145,6 +157,9 @@
 		01A6F35B27057A6600E561A0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0163293B2784F8F60050A006 /* NavigationBar.swift */,
+				0163293F278502A40050A006 /* FeedTableView.swift */,
+				01632941278516230050A006 /* FAB.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -348,6 +363,7 @@
 			files = (
 				01AE71F726FEB0CA006C1EFC /* GoogleService-Info.plist in Resources */,
 				01A6F358270577C600E561A0 /* ProximaNova-Regular.otf in Resources */,
+				0163293E278501220050A006 /* Varela-Regular.ttf in Resources */,
 				01A6F356270577B500E561A0 /* Proxima Nova Bold.otf in Resources */,
 				01AE71D326FEA39C006C1EFC /* LaunchScreen.storyboard in Resources */,
 				01AE71D026FEA39C006C1EFC /* Assets.xcassets in Resources */,
@@ -486,9 +502,13 @@
 				015309382703B6DE00D10B7B /* Protocols.swift in Sources */,
 				01AE71FA26FEC36B006C1EFC /* FirebaseAccess.swift in Sources */,
 				0153093C2703C08800D10B7B /* Vote.swift in Sources */,
+				0163294427851D010050A006 /* Globals.swift in Sources */,
 				01AE71C926FEA38D006C1EFC /* SceneDelegate.swift in Sources */,
 				01A6F35A2705780A00E561A0 /* Fonts.swift in Sources */,
+				01632940278502A40050A006 /* FeedTableView.swift in Sources */,
 				0114F5C826FFD7D000498F9F /* Utils.swift in Sources */,
+				0163293C2784F8F60050A006 /* NavigationBar.swift in Sources */,
+				01632942278516230050A006 /* FAB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
