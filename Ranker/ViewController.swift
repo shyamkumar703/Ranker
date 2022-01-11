@@ -108,6 +108,7 @@ class ViewController: UIViewController {
     
     @objc func profileTapped() {
         feedback()
+        present(ProfileViewController(), animated: true, completion: nil)
     }
     
     @objc func scopeTapped() {
@@ -165,6 +166,7 @@ extension ViewController: TapHandler, CellDelegate {
     
     @objc func tapHandler() {
         feedback()
+        present(CreatePollViewController(), animated: true, completion: nil)
     }
     
     func voteTapped(poll: Poll) {

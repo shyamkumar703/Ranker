@@ -18,6 +18,9 @@
 		0163294627852BA80050A006 /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0163294527852BA80050A006 /* VoteViewController.swift */; };
 		01632948278543050050A006 /* RankTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01632947278543050050A006 /* RankTableView.swift */; };
 		0163294A278556680050A006 /* PrimaryActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01632949278556680050A006 /* PrimaryActionButton.swift */; };
+		0163294C2785801C0050A006 /* CreatePollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0163294B2785801C0050A006 /* CreatePollViewController.swift */; };
+		0163294E278581DC0050A006 /* CreatePollTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0163294D278581DC0050A006 /* CreatePollTableView.swift */; };
+		0163295027858A800050A006 /* ColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0163294F27858A800050A006 /* ColorSelector.swift */; };
 		01A6F353270575E000E561A0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A6F352270575E000E561A0 /* Colors.swift */; };
 		01A6F356270577B500E561A0 /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01A6F355270577B500E561A0 /* Proxima Nova Bold.otf */; };
 		01A6F358270577C600E561A0 /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01A6F357270577C600E561A0 /* ProximaNova-Regular.otf */; };
@@ -33,6 +36,8 @@
 		01AE71FA26FEC36B006C1EFC /* FirebaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71F926FEC36B006C1EFC /* FirebaseAccess.swift */; };
 		01C63A642783B9120037A9AE /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C63A632783B9120037A9AE /* Poll.swift */; };
 		01C63A662783BC2C0037A9AE /* PollChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C63A652783BC2C0037A9AE /* PollChoice.swift */; };
+		01D94E8C278D4CC300071FAB /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D94E8B278D4CC300071FAB /* BarChart.swift */; };
+		01D94E8E278D4E6A00071FAB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D94E8D278D4E6A00071FAB /* ProfileViewController.swift */; };
 		20564B98A7FE4D1A8A74987C /* Pods_Ranker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED6F6B532A09D2C11559831 /* Pods_Ranker.framework */; };
 		6216E64B35EA8BD3F0D0ECF1 /* Pods_Ranker_RankerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC98ED9F488D7154BD5EB2A /* Pods_Ranker_RankerUITests.framework */; };
 		AC15D31AF9845D6A7247DE7B /* Pods_RankerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE6F44786958DD55873C3EC /* Pods_RankerTests.framework */; };
@@ -67,6 +72,9 @@
 		0163294527852BA80050A006 /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
 		01632947278543050050A006 /* RankTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableView.swift; sourceTree = "<group>"; };
 		01632949278556680050A006 /* PrimaryActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryActionButton.swift; sourceTree = "<group>"; };
+		0163294B2785801C0050A006 /* CreatePollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePollViewController.swift; sourceTree = "<group>"; };
+		0163294D278581DC0050A006 /* CreatePollTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePollTableView.swift; sourceTree = "<group>"; };
+		0163294F27858A800050A006 /* ColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelector.swift; sourceTree = "<group>"; };
 		01A6F352270575E000E561A0 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		01A6F355270577B500E561A0 /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
 		01A6F357270577C600E561A0 /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
@@ -88,6 +96,8 @@
 		01AE71F926FEC36B006C1EFC /* FirebaseAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAccess.swift; sourceTree = "<group>"; };
 		01C63A632783B9120037A9AE /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		01C63A652783BC2C0037A9AE /* PollChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollChoice.swift; sourceTree = "<group>"; };
+		01D94E8B278D4CC300071FAB /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		01D94E8D278D4E6A00071FAB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0BC6A3866D9067D01952069A /* Pods-Ranker-RankerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranker-RankerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Ranker-RankerUITests/Pods-Ranker-RankerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		0DC98ED9F488D7154BD5EB2A /* Pods_Ranker_RankerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ranker_RankerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39AEA4E33548B09D374732A1 /* Pods-Ranker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranker.debug.xcconfig"; path = "Target Support Files/Pods-Ranker/Pods-Ranker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +178,9 @@
 				01632941278516230050A006 /* FAB.swift */,
 				01632949278556680050A006 /* PrimaryActionButton.swift */,
 				01632947278543050050A006 /* RankTableView.swift */,
+				0163294D278581DC0050A006 /* CreatePollTableView.swift */,
+				0163294F27858A800050A006 /* ColorSelector.swift */,
+				01D94E8B278D4CC300071FAB /* BarChart.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +218,8 @@
 				01AE71C826FEA38D006C1EFC /* SceneDelegate.swift */,
 				01AE71CA26FEA38D006C1EFC /* ViewController.swift */,
 				0163294527852BA80050A006 /* VoteViewController.swift */,
+				0163294B2785801C0050A006 /* CreatePollViewController.swift */,
+				01D94E8D278D4E6A00071FAB /* ProfileViewController.swift */,
 				01AE71CF26FEA39C006C1EFC /* Assets.xcassets */,
 				01AE71D126FEA39C006C1EFC /* LaunchScreen.storyboard */,
 				01AE71D426FEA39C006C1EFC /* Info.plist */,
@@ -504,21 +519,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				0163294627852BA80050A006 /* VoteViewController.swift in Sources */,
+				0163295027858A800050A006 /* ColorSelector.swift in Sources */,
 				01C63A642783B9120037A9AE /* Poll.swift in Sources */,
+				0163294E278581DC0050A006 /* CreatePollTableView.swift in Sources */,
 				01AE71CB26FEA38D006C1EFC /* ViewController.swift in Sources */,
 				01A6F353270575E000E561A0 /* Colors.swift in Sources */,
 				0163294A278556680050A006 /* PrimaryActionButton.swift in Sources */,
 				01AE71C726FEA38D006C1EFC /* AppDelegate.swift in Sources */,
+				01D94E8C278D4CC300071FAB /* BarChart.swift in Sources */,
 				01C63A662783BC2C0037A9AE /* PollChoice.swift in Sources */,
 				015309382703B6DE00D10B7B /* Protocols.swift in Sources */,
 				01AE71FA26FEC36B006C1EFC /* FirebaseAccess.swift in Sources */,
 				0153093C2703C08800D10B7B /* Vote.swift in Sources */,
 				0163294427851D010050A006 /* Globals.swift in Sources */,
 				01AE71C926FEA38D006C1EFC /* SceneDelegate.swift in Sources */,
+				01D94E8E278D4E6A00071FAB /* ProfileViewController.swift in Sources */,
 				01A6F35A2705780A00E561A0 /* Fonts.swift in Sources */,
 				01632948278543050050A006 /* RankTableView.swift in Sources */,
 				01632940278502A40050A006 /* FeedTableView.swift in Sources */,
 				0114F5C826FFD7D000498F9F /* Utils.swift in Sources */,
+				0163294C2785801C0050A006 /* CreatePollViewController.swift in Sources */,
 				0163293C2784F8F60050A006 /* NavigationBar.swift in Sources */,
 				01632942278516230050A006 /* FAB.swift in Sources */,
 			);
