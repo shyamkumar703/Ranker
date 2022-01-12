@@ -19,6 +19,13 @@ class ViewController: UIViewController {
     var scope: Scope = .local {
         didSet {
             updateScope() {}
+            switch scope {
+            case .global:
+                feedTable.model.emptyStateModel.emptyType = .nothing
+            case .local:
+                feedTable.model.emptyStateModel.emptyType = .feed
+            }
+            feedTable.updateView()
         }
     }
     
@@ -48,11 +55,14 @@ class ViewController: UIViewController {
     lazy var feedTable: FeedTableView = {
         let table = FeedTableView()
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.cellDelegate = self
         let db = Firestore.firestore()
         db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { polls in
             if let polls = polls {
-                table.model = FeedTableViewModel(polls: polls.sorted(by: {$0.date > $1.date}))
+                table.model = FeedTableViewModel(
+                    polls: polls.sorted(by: {$0.date > $1.date}),
+                    cellDelegate: self,
+                    emptyStateModel: EmptyStateModel(emptyType: .feed, delegate: self)
+                )
             }
         })
         return table
@@ -147,14 +157,22 @@ class ViewController: UIViewController {
                 locationManager.startUpdatingLocation()
                 if let polls = polls ,
                    let loc = locationManager.location {
-                    feedTable.model = FeedTableViewModel(polls: polls.sorted(by: {$0.date > $1.date}).filter({ $0.shouldIncludeInLocalFeed(currentLocation: loc) }))
+                    feedTable.model = FeedTableViewModel(
+                        polls: polls.sorted(by: {$0.date > $1.date}).filter({ $0.shouldIncludeInLocalFeed(currentLocation: loc) }),
+                        cellDelegate: self,
+                        emptyStateModel: EmptyStateModel(emptyType: .feed, delegate: self)
+                    )
                     completion()
                 }
             })
         case .global:
             db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { [self] polls in
                 if let polls = polls {
-                    feedTable.model = FeedTableViewModel(polls: polls.sorted(by: {$0.date > $1.date}))
+                    feedTable.model = FeedTableViewModel(
+                        polls: polls.sorted(by: {$0.date > $1.date}),
+                        cellDelegate: self,
+                        emptyStateModel: EmptyStateModel(emptyType: .nothing, delegate: self)
+                    )
                     completion()
                 }
             })
@@ -171,7 +189,13 @@ extension ViewController: CLLocationManagerDelegate {
     }
 }
 
-extension ViewController: TapHandler, CellDelegate {
+extension ViewController: TapHandler, CellDelegate, EmptyStateDelegate {
+    var emptyStateTapped: Selector {
+        get {
+            return #selector(scopeTapped)
+        }
+    }
+    
     var handleTap: Selector {
         get {
             return #selector(tapHandler)

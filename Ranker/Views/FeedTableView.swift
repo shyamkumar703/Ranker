@@ -13,8 +13,12 @@ fileprivate var votedCellId: String = "voted"
 
 struct FeedTableViewModel {
     var polls: [Poll]
-    init(polls: [Poll] = []) {
+    var cellDelegate: CellDelegate?
+    var emptyStateModel: EmptyStateModel
+    init(polls: [Poll] = [], cellDelegate: CellDelegate? = nil, emptyStateModel: EmptyStateModel = EmptyStateModel()) {
         self.polls = polls
+        self.cellDelegate = cellDelegate
+        self.emptyStateModel = emptyStateModel
     }
 }
 
@@ -26,7 +30,12 @@ class FeedTableView: UIView {
         }
     }
     
-    var cellDelegate: CellDelegate?
+    lazy var emptyState: EmptyState = {
+        let view = EmptyState()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.alpha = 0
+        return view
+    }()
     
     lazy var tableView: UITableView = {
         let tv = UITableView()
@@ -58,9 +67,15 @@ class FeedTableView: UIView {
     func setupView() {
         backgroundColor = .white
         addSubview(tableView)
+        addSubview(emptyState)
     }
     
     func setupConstraints() {
+        emptyState.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        emptyState.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        emptyState.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        emptyState.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
         tableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
@@ -68,6 +83,16 @@ class FeedTableView: UIView {
     }
     
     func updateView() {
+        emptyState.model = model.emptyStateModel
+        
+        if model.polls.count == 0 {
+            tableView.alpha = 0
+            emptyState.alpha = 1
+            return
+        }
+        
+        emptyState.alpha = 0
+        tableView.alpha = 1
         tableView.reloadData()
     }
 }
@@ -80,14 +105,14 @@ extension FeedTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if model.polls[indexPath.row].getPollStatus() != .open {
             if let cell = tableView.dequeueReusableCell(withIdentifier: votedCellId, for: indexPath) as? VotedPollCell {
-                cell.delegate = cellDelegate
+                cell.delegate = model.cellDelegate
                 cell.model = model.polls[indexPath.row]
                 cell.selectionStyle = .none
                 return cell
             }
         } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? PollCell {
-                cell.delegate = cellDelegate
+                cell.delegate = model.cellDelegate
                 cell.model = model.polls[indexPath.row]
                 cell.selectionStyle = .none
                 return cell

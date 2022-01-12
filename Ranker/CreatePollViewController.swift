@@ -135,6 +135,8 @@ extension CreatePollViewController: TapHandler {
                 vc.reload {
                     self.dismiss(animated: true, completion: nil)
                 }
+            } else {
+                self.dismiss(animated: true, completion: nil)
             }
         })
     }

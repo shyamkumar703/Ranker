@@ -26,7 +26,10 @@ class ProfileViewController: UIViewController {
         let db = Firestore.firestore()
         db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { polls in
             if let polls = polls {
-                table.model = FeedTableViewModel(polls: polls.filter({ $0.getPollStatus() == .posted }))
+                table.model = FeedTableViewModel(
+                    polls: polls.filter({ $0.getPollStatus() == .posted }),
+                    emptyStateModel: EmptyStateModel(emptyType: .profile, delegate: self)
+                )
             }
         })
         return table
@@ -53,5 +56,18 @@ class ProfileViewController: UIViewController {
         table.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         table.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
+    }
+}
+
+extension ProfileViewController: EmptyStateDelegate {
+    var emptyStateTapped: Selector {
+        get {
+            return #selector(handleEmptyStateTap)
+        }
+    }
+    
+    @objc func handleEmptyStateTap() {
+        feedback()
+        present(CreatePollViewController(), animated: true, completion: nil)
     }
 }

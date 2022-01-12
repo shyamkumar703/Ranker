@@ -34,6 +34,7 @@
 		01AE71E926FEA39D006C1EFC /* RankerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71E826FEA39D006C1EFC /* RankerUITests.swift */; };
 		01AE71F726FEB0CA006C1EFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01AE71F626FEB0CA006C1EFC /* GoogleService-Info.plist */; };
 		01AE71FA26FEC36B006C1EFC /* FirebaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE71F926FEC36B006C1EFC /* FirebaseAccess.swift */; };
+		01C2CBDA278E8248000ED47F /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C2CBD9278E8248000ED47F /* EmptyState.swift */; };
 		01C63A642783B9120037A9AE /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C63A632783B9120037A9AE /* Poll.swift */; };
 		01C63A662783BC2C0037A9AE /* PollChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C63A652783BC2C0037A9AE /* PollChoice.swift */; };
 		01D94E8C278D4CC300071FAB /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D94E8B278D4CC300071FAB /* BarChart.swift */; };
@@ -94,6 +95,7 @@
 		01AE71EA26FEA39D006C1EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01AE71F626FEB0CA006C1EFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01AE71F926FEC36B006C1EFC /* FirebaseAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAccess.swift; sourceTree = "<group>"; };
+		01C2CBD9278E8248000ED47F /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		01C63A632783B9120037A9AE /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		01C63A652783BC2C0037A9AE /* PollChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollChoice.swift; sourceTree = "<group>"; };
 		01D94E8B278D4CC300071FAB /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				0163294D278581DC0050A006 /* CreatePollTableView.swift */,
 				0163294F27858A800050A006 /* ColorSelector.swift */,
 				01D94E8B278D4CC300071FAB /* BarChart.swift */,
+				01C2CBD9278E8248000ED47F /* EmptyState.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				0163294627852BA80050A006 /* VoteViewController.swift in Sources */,
 				0163295027858A800050A006 /* ColorSelector.swift in Sources */,
 				01C63A642783B9120037A9AE /* Poll.swift in Sources */,
+				01C2CBDA278E8248000ED47F /* EmptyState.swift in Sources */,
 				0163294E278581DC0050A006 /* CreatePollTableView.swift in Sources */,
 				01AE71CB26FEA38D006C1EFC /* ViewController.swift in Sources */,
 				01A6F353270575E000E561A0 /* Colors.swift in Sources */,
