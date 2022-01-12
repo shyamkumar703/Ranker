@@ -13,6 +13,7 @@ class BarChart: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     @IBInspectable var dataPoints: [Int] = [10, 20, 30, 40, 0] {
         didSet {
             goalReps = dataPoints.max() ?? 0
+            collectionView.reloadData()
         }
     }
     var colors: [UIColor] = [.rBlue, .rRed]
@@ -25,6 +26,24 @@ class BarChart: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     var goalReps = 0
     
+    lazy var layout: UICollectionViewLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        return layout
+    }()
+    
+    lazy var collectionView: UICollectionView = {
+        let collectionView: UICollectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
+        collectionView.backgroundColor = .clear
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(BarChartCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
+    
     override func draw(_ rect: CGRect) {
         if !goalLine {
             return
@@ -33,21 +52,7 @@ class BarChart: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     }
     
     override func layoutSubviews() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        
-        let collectionView: UICollectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
-        collectionView.backgroundColor = .clear
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
         addSubview(collectionView)
-        
-        collectionView.register(BarChartCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
-        
         collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         collectionView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
@@ -91,6 +96,10 @@ class BarChart: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         let stringRect = CGRect(x: endX + 5, y: endY - 4, width: 100, height: 20)
         attributedString.draw(in: stringRect)
     }
+    
+    func reload() {
+        collectionView.reloadData()
+    }
 
 }
 
@@ -133,6 +142,7 @@ class BarChartCell: UICollectionViewCell {
         addSubview(view)
         view.backgroundColor = color
         view.layer.cornerRadius = 4
+        view.removeConstraints(view.constraints)
         
         view.translatesAutoresizingMaskIntoConstraints = false
         view.widthAnchor.constraint(equalToConstant: CGFloat(barWidth)).isActive = true
@@ -147,5 +157,9 @@ class BarChartCell: UICollectionViewCell {
         } else {
             view.heightAnchor.constraint(equalToConstant: height).isActive = true
         }
+    }
+    
+    override func prepareForReuse() {
+        view.removeFromSuperview()
     }
 }

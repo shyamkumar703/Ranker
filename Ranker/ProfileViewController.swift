@@ -7,7 +7,7 @@
 
 import UIKit
 
-// 8 * # of cells + (4 * (# of cells - 1))
+// 60 height for bar chart
 
 class ProfileViewController: UIViewController {
     

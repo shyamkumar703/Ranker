@@ -56,3 +56,38 @@ class PollChoice: Codable, Identifiable, DictDecode {
         ]
     }
 }
+
+struct Ranking {
+    var score: Int
+    var choice: PollChoice
+    
+    init(score: Int, choice: PollChoice) {
+        self.score = score
+        self.choice = choice
+    }
+    
+    init(poll: Poll, choice: PollChoice) {
+        self.choice = choice
+        let filteredVotes = poll.votes.map({ $0.data.filter({ $0.1.id ==  choice.id }) })
+        self.score = filteredVotes.reduce(0, { total, currVote in total + Ranking.voteToScore(vote: currVote) })
+    }
+    
+    static func voteToScore(vote: [String: PollChoice]) -> Int {
+        return vote.reduce(0, { total, vote in
+            switch vote.key {
+            case "1":
+                return total + 10
+            case "2":
+                return total + 5
+            case "3":
+                return total + 3
+            case "4":
+                return total + 1
+            case "5":
+                return total + 0
+            default:
+                return 0
+            }
+        })
+    }
+}

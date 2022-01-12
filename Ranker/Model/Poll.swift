@@ -161,6 +161,10 @@ class Poll: Codable, Identifiable, DictDecode {
     func computeNewDate(from fromDate: Date, to toDate: Date) -> Int? {
         return Calendar.current.dateComponents([.minute], from: fromDate, to: toDate).minute
     }
+    
+    func getRankings() -> [Ranking] {
+        return choices.map({ Ranking(poll: self, choice: $0) }).sorted(by: { $0.score > $1.score })
+    }
 }
 
 extension CLLocationDistance {

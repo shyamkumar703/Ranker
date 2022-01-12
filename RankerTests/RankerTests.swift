@@ -11,6 +11,14 @@ import XCTest
 
 class RankerTests: XCTestCase {
     
+    // MARK: - TEST RANKING
+    func testVoteToScore() {
+        if let sut = generateSUT() {
+            let ranking = Ranking(poll: sut, choice: sut.choices[0])
+            XCTAssertEqual(ranking.score, 15)
+        }
+    }
+    
     // MARK: - TEST UID GET/SET
     func testUID() {
         XCTAssertNotNil(uid)
@@ -147,7 +155,29 @@ extension RankerTests {
                     pc4,
                     pc5
                 ],
-                date: Date()
+                date: Date(),
+                votes: [
+                    Vote(
+                        id: UUID().uuidString,
+                        data: [
+                        "1": pc1,
+                        "2": pc2,
+                        "3": pc3,
+                        "4": pc4,
+                        "5": pc5
+                        ]
+                    ),
+                    Vote(
+                        id: UUID().uuidString,
+                        data: [
+                        "2": pc1,
+                        "1": pc2,
+                        "3": pc3,
+                        "4": pc4,
+                        "5": pc5
+                        ]
+                    )
+                ]
             )
         } else {
             XCTFail("Could not get user id")

@@ -239,10 +239,6 @@ class CreatePollTableViewCell: UITableViewCell, ColorSelectorDelegate, UITextFie
         }
     }
     
-    @objc func editColorTapped() {
-        print("hello")
-    }
-    
     func selectionChanged(color: UIColor?) {
         // color to string conversion needed
         UIView.animate(withDuration: 0.2, animations: {
