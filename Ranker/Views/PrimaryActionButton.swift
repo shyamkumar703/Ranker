@@ -9,6 +9,16 @@ import UIKit
 
 class PrimaryActionButton: UIView {
     
+    let attrs: [NSAttributedString.Key: Any] = [
+        .foregroundColor: UIColor.white,
+        .font: UIFont.regularFont.withSize(15)
+    ]
+    
+    let disabledAttrs: [NSAttributedString.Key: Any] = [
+        .foregroundColor: UIColor.lightGray,
+        .font: UIFont.regularFont.withSize(15)
+    ]
+    
     var title: String = "" {
         didSet {
             updateView()
@@ -41,6 +51,7 @@ class PrimaryActionButton: UIView {
     func setupView() {
         backgroundColor = .rBlue
         addSubview(button)
+        layer.cornerRadius = 10
     }
     
     func setupConstraints() {
@@ -51,13 +62,19 @@ class PrimaryActionButton: UIView {
     }
     
     func updateView() {
-        let attrs: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.white,
-            .font: UIFont.regularFont.withSize(15)
-        ]
         button.setAttributedTitle(NSAttributedString(string: title, attributes: attrs), for: .normal)
         if let delegate = delegate {
             button.addTarget(delegate, action: delegate.handleTap, for: .touchUpInside)
         }
+    }
+    
+    func disable() {
+        button.isEnabled = false
+        UIView.animate(withDuration: 0.2, animations: { self.button.backgroundColor = .lightGray })
+    }
+    
+    func enable() {
+        button.isEnabled = true
+        UIView.animate(withDuration: 0.2, animations: { self.button.backgroundColor = .rBlue })
     }
 }

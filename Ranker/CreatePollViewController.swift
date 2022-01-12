@@ -8,6 +8,10 @@
 import FirebaseFirestore
 import UIKit
 
+protocol ModelDelegate {
+    func modelChanged(model: Poll)
+}
+
 // TODO: - Handle keyboard stuff
 
 class CreatePollViewController: UIViewController {
@@ -28,6 +32,7 @@ class CreatePollViewController: UIViewController {
     lazy var table: CreatePollTableView = {
         let view = CreatePollTableView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.modelDelegate = self
         return view
     }()
     
@@ -35,6 +40,8 @@ class CreatePollViewController: UIViewController {
         let pab = PrimaryActionButton()
         pab.delegate = self
         pab.title = "Post"
+        pab.clipsToBounds = true
+        pab.disable()
         pab.translatesAutoresizingMaskIntoConstraints = false
         return pab
     }()
@@ -76,7 +83,6 @@ class CreatePollViewController: UIViewController {
         pab.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8).isActive = true
         pab.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8).isActive = true
         pab.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        pab.layer.cornerRadius = 10
         
         keyboardHeightLayoutConstraint = pab.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8)
         keyboardHeightLayoutConstraint?.isActive = true
@@ -109,11 +115,32 @@ class CreatePollViewController: UIViewController {
     }
 }
 
-extension CreatePollViewController: UITextFieldDelegate {
+extension CreatePollViewController: UITextFieldDelegate, ModelDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text else { return }
         guard let model = table.model else { return }
         model.question = text
+    }
+    
+    func modelChanged(model: Poll) {
+        switch validateModel(model: model) {
+        case true:
+            pab.enable()
+        case false:
+            pab.disable()
+        }
+    }
+    
+    func validateModel(model: Poll) -> Bool {
+        if model.choices.filter({!$0.title.isEmpty}).count < 2 {
+            return false
+        }
+        
+        if model.question.isEmpty {
+            return false
+        }
+        
+        return true
     }
 }
 

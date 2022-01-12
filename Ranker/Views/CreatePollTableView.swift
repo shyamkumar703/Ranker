@@ -30,6 +30,8 @@ class CreatePollTableView: UIView {
         }
     }
     
+    var modelDelegate: ModelDelegate?
+    
     lazy var addOptionFooterButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -129,31 +131,42 @@ class CreatePollTableView: UIView {
     }
 }
 
-extension CreatePollTableView: UITableViewDelegate, UITableViewDataSource {
+extension CreatePollTableView: UITableViewDelegate, UITableViewDataSource, ChoiceDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model?.choices.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CreatePollTableViewCell {
-            cell.model = CellModel(row: indexPath.row + 1, pc: model?.choices[indexPath.row])
+            cell.model = CellModel(row: indexPath.row + 1, pc: model?.choices[indexPath.row], choiceDelegate: self)
             return cell
         }
         return UITableViewCell()
     }
+    
+    func choiceChanged() {
+        guard let model = model else { return }
+        modelDelegate?.modelChanged(model: model)
+    }
+}
+
+protocol ChoiceDelegate {
+    func choiceChanged()
 }
 
 struct CellModel {
     var row: Int
     var pc: PollChoice
+    var choiceDelegate: ChoiceDelegate?
     
-    init?(row: Int, pc: PollChoice?) {
+    init?(row: Int, pc: PollChoice?, choiceDelegate: ChoiceDelegate? = nil) {
         self.row = row
         if let pc = pc {
             self.pc = pc
         } else {
             return nil
         }
+        self.choiceDelegate = choiceDelegate
     }
 }
 
@@ -249,5 +262,6 @@ class CreatePollTableViewCell: UITableViewCell, ColorSelectorDelegate, UITextFie
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text else { return }
         model?.pc.title = text
+        model?.choiceDelegate?.choiceChanged()
     }
 }
