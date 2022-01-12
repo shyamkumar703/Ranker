@@ -102,6 +102,7 @@ class EmptyState: UIView {
         }
         
         if let delegate = model.delegate {
+            button.removeTarget(self, action: #selector(openSettings), for: .touchUpInside)
             button.addTarget(delegate, action: delegate.emptyStateTapped, for: .touchUpInside)
         }
         
