@@ -75,15 +75,15 @@ struct Ranking {
     static func voteToScore(vote: [String: PollChoice]) -> Int {
         return vote.reduce(0, { total, vote in
             switch vote.key {
-            case "1":
+            case "0":
                 return total + 10
-            case "2":
+            case "1":
                 return total + 5
-            case "3":
+            case "2":
                 return total + 3
-            case "4":
+            case "3":
                 return total + 1
-            case "5":
+            case "4":
                 return total + 0
             default:
                 return 0

@@ -62,16 +62,7 @@ class ViewController: UIViewController {
         let table = FeedTableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.tableView.refreshControl = refreshControl
-        let db = Firestore.firestore()
-        db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { polls in
-            if let polls = polls {
-                table.model = FeedTableViewModel(
-                    polls: polls.sorted(by: {$0.date > $1.date}),
-                    cellDelegate: self,
-                    emptyStateModel: EmptyStateModel(emptyType: .feed, delegate: self)
-                )
-            }
-        })
+        updateScope {}
         return table
     }()
     
