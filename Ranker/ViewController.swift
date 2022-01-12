@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Rankerz
+//  Ranker
 //
 //  Created by Shyam Kumar on 9/24/21.
 //
@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     var scope: Scope = .local {
         didSet {
-            updateScope()
+            updateScope() {}
         }
     }
     
@@ -113,38 +113,52 @@ class ViewController: UIViewController {
     
     @objc func scopeTapped() {
         feedback()
+        UIView.animate(
+            withDuration: 0.2,
+            animations: { [self] in
+                locationButton.alpha = 0
+                feedTable.alpha = 0
+            },
+            completion: { [self] _ in
+                switch scope {
+                case .local:
+                    locationButton.setImage(UIImage(systemName: "globe"), for: .normal)
+                    scope = .global
+                case .global:
+                    self.locationButton.setImage(UIImage(systemName: "mappin"), for: .normal)
+                    scope = .local
+                }
+                updateScope {
+                    UIView.animate(withDuration: 0.2, animations: {
+                        locationButton.alpha = 1
+                        feedTable.alpha = 1
+                    })
+                }
+            }
+        )
+    }
+    
+    func updateScope(completion: @escaping () -> Void) {
+        let db = Firestore.firestore()
         switch scope {
         case .local:
-            fadeInOutAnimation(
-                view: locationButton,
-                action: { self.locationButton.setImage(UIImage(systemName: "globe"), for: .normal) },
-                duration: 0.2
-            )
-            scope = .global
-        case .global:
-            fadeInOutAnimation(
-                view: locationButton,
-                action: { self.locationButton.setImage(UIImage(systemName: "mappin"), for: .normal) },
-                duration: 0.2
-            )
-            scope = .local
-        }
-    }
-    
-    func updateScope() {
-    }
-    
-    func fadeInOutAnimation(view: UIView, action: @escaping () -> Void, duration: Double, completion: (() -> Void)? = nil) {
-        UIView.animate(withDuration: duration, animations: {
-            view.alpha = 0
-        }, completion: { _ in
-            action()
-            UIView.animate(withDuration: duration, animations: {
-                view.alpha = 1
-            }, completion: { _ in
-                completion?()
+            db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { [self] polls in
+                let locationManager = CLLocationManager()
+                locationManager.startUpdatingLocation()
+                if let polls = polls ,
+                   let loc = locationManager.location {
+                    feedTable.model = FeedTableViewModel(polls: polls.sorted(by: {$0.date > $1.date}).filter({ $0.shouldIncludeInLocalFeed(currentLocation: loc) }))
+                    completion()
+                }
             })
-        })
+        case .global:
+            db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { [self] polls in
+                if let polls = polls {
+                    feedTable.model = FeedTableViewModel(polls: polls.sorted(by: {$0.date > $1.date}))
+                    completion()
+                }
+            })
+        }
     }
 }
 
