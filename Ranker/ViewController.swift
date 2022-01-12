@@ -76,6 +76,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
+        UserDefaults.standard.set(true, forKey: Launch.hasLaunched.rawValue)
         setupView()
         setupConstraints()
     }
@@ -180,6 +181,7 @@ class ViewController: UIViewController {
 
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        updateScope {}
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

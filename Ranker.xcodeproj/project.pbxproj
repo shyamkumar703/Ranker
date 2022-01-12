@@ -37,6 +37,7 @@
 		01C2CBDA278E8248000ED47F /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C2CBD9278E8248000ED47F /* EmptyState.swift */; };
 		01C63A642783B9120037A9AE /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C63A632783B9120037A9AE /* Poll.swift */; };
 		01C63A662783BC2C0037A9AE /* PollChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C63A652783BC2C0037A9AE /* PollChoice.swift */; };
+		01D29EF8278F485300CEC599 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D29EF7278F485300CEC599 /* LaunchViewController.swift */; };
 		01D94E8C278D4CC300071FAB /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D94E8B278D4CC300071FAB /* BarChart.swift */; };
 		01D94E8E278D4E6A00071FAB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D94E8D278D4E6A00071FAB /* ProfileViewController.swift */; };
 		20564B98A7FE4D1A8A74987C /* Pods_Ranker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED6F6B532A09D2C11559831 /* Pods_Ranker.framework */; };
@@ -98,6 +99,7 @@
 		01C2CBD9278E8248000ED47F /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		01C63A632783B9120037A9AE /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		01C63A652783BC2C0037A9AE /* PollChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollChoice.swift; sourceTree = "<group>"; };
+		01D29EF7278F485300CEC599 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		01D94E8B278D4CC300071FAB /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
 		01D94E8D278D4E6A00071FAB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0BC6A3866D9067D01952069A /* Pods-Ranker-RankerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranker-RankerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Ranker-RankerUITests/Pods-Ranker-RankerUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				0163294527852BA80050A006 /* VoteViewController.swift */,
 				0163294B2785801C0050A006 /* CreatePollViewController.swift */,
 				01D94E8D278D4E6A00071FAB /* ProfileViewController.swift */,
+				01D29EF7278F485300CEC599 /* LaunchViewController.swift */,
 				01AE71CF26FEA39C006C1EFC /* Assets.xcassets */,
 				01AE71D126FEA39C006C1EFC /* LaunchScreen.storyboard */,
 				01AE71D426FEA39C006C1EFC /* Info.plist */,
@@ -537,6 +540,7 @@
 				0153093C2703C08800D10B7B /* Vote.swift in Sources */,
 				0163294427851D010050A006 /* Globals.swift in Sources */,
 				01AE71C926FEA38D006C1EFC /* SceneDelegate.swift in Sources */,
+				01D29EF8278F485300CEC599 /* LaunchViewController.swift in Sources */,
 				01D94E8E278D4E6A00071FAB /* ProfileViewController.swift in Sources */,
 				01A6F35A2705780A00E561A0 /* Fonts.swift in Sources */,
 				01632948278543050050A006 /* RankTableView.swift in Sources */,

@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum Launch: String {
+    case hasLaunched
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -20,7 +24,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.overrideUserInterfaceStyle = .light
         window?.windowScene = windowScene
-        window?.rootViewController = ViewController()
+        
+        let defaults = UserDefaults.standard
+        let hasLaunched = defaults.bool(forKey: Launch.hasLaunched.rawValue)
+        if hasLaunched {
+            window?.rootViewController = ViewController()
+        } else {
+            // TODO
+            window?.rootViewController = LaunchViewController()
+        }
+        
         window?.makeKeyAndVisible()
     }
 
