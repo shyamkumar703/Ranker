@@ -153,6 +153,19 @@ class ViewController: UIViewController {
         case .local:
             db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { [self] polls in
                 let locationManager = CLLocationManager()
+                // check for location auth
+                if !checkForLocationAuth(locationManager: locationManager) {
+                    feedTable.model = FeedTableViewModel(
+                        polls: [],
+                        cellDelegate: self,
+                        emptyStateModel: EmptyStateModel(
+                            emptyType: .locationFailure,
+                            delegate: self
+                        )
+                    )
+                    completion()
+                }
+                
                 locationManager.startUpdatingLocation()
                 if let polls = polls ,
                    let loc = locationManager.location {
@@ -175,6 +188,21 @@ class ViewController: UIViewController {
                     completion()
                 }
             })
+        }
+    }
+    
+    func checkForLocationAuth(locationManager: CLLocationManager) -> Bool {
+        if CLLocationManager.locationServicesEnabled() {
+             switch locationManager.authorizationStatus {
+             case .notDetermined, .restricted, .denied:
+                 return false
+             case .authorizedAlways, .authorizedWhenInUse:
+                 return true
+             default:
+                 return true
+             }
+        } else {
+            return false
         }
     }
 }

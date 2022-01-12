@@ -15,6 +15,7 @@ enum EmptyType: String {
     case feed = "Go global"
     case profile = "Post a poll"
     case nothing = ""
+    case locationFailure = "Settings"
 }
 
 struct EmptyStateModel {
@@ -52,6 +53,7 @@ class EmptyState: UIView {
         label.textAlignment = .center
         label.textColor = .black
         label.text = "Looks like there's nothing here."
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -93,9 +95,31 @@ class EmptyState: UIView {
     
     func updateView() {
         button.setAttributedTitle(NSAttributedString(string: model.emptyType.rawValue, attributes: attributes), for: .normal)
-        if model.emptyType == .nothing { button.isEnabled = false } else { button.isEnabled = true }
+        if model.emptyType == .nothing {
+            button.isEnabled = false
+        } else {
+            button.isEnabled = true
+        }
+        
         if let delegate = model.delegate {
             button.addTarget(delegate, action: delegate.emptyStateTapped, for: .touchUpInside)
+        }
+        
+        if model.emptyType == .locationFailure {
+            label.text = "We need your location to personalize your feed."
+            if let delegate = model.delegate {
+                button.removeTarget(delegate, action: delegate.emptyStateTapped, for: .touchUpInside)
+                button.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
+            }
+        } else {
+            label.text = "Looks like there's nothing here."
+        }
+    }
+    
+    @objc func openSettings() {
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+        if UIApplication.shared.canOpenURL(settingsURL) {
+            UIApplication.shared.open(settingsURL) { _ in return }
         }
     }
 }
