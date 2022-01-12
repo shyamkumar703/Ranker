@@ -83,17 +83,19 @@ class FeedTableView: UIView {
     }
     
     func updateView() {
-        emptyState.model = model.emptyStateModel
-        
-        if model.polls.count == 0 {
-            tableView.alpha = 0
-            emptyState.alpha = 1
-            return
+        DispatchQueue.main.async { [self] in
+            emptyState.model = model.emptyStateModel
+            
+            if model.polls.count == 0 {
+                tableView.alpha = 0
+                emptyState.alpha = 1
+                return
+            }
+            
+            emptyState.alpha = 0
+            tableView.alpha = 1
+            tableView.reloadData()
         }
-        
-        emptyState.alpha = 0
-        tableView.alpha = 1
-        tableView.reloadData()
     }
 }
 

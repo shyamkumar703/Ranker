@@ -29,6 +29,12 @@ class ViewController: UIViewController {
         }
     }
     
+    lazy var refreshControl: UIRefreshControl = {
+        let rc = UIRefreshControl()
+        rc.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        return rc
+    }()
+    
     lazy var locationButton: UIButton = {
         return buttonFactory(image: UIImage(systemName: "mappin"), action: #selector(scopeTapped))
     }()
@@ -55,6 +61,7 @@ class ViewController: UIViewController {
     lazy var feedTable: FeedTableView = {
         let table = FeedTableView()
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.tableView.refreshControl = refreshControl
         let db = Firestore.firestore()
         db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { polls in
             if let polls = polls {
@@ -216,12 +223,14 @@ extension ViewController: TapHandler, CellDelegate, EmptyStateDelegate {
 
 extension ViewController: Reloadable {
     func reload(completion: @escaping () -> Void) {
-        let db = Firestore.firestore()
-        db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { polls in
-            if let polls = polls {
-                self.feedTable.model = FeedTableViewModel(polls: polls.sorted(by: {$0.date > $1.date}))
-                completion()
-            }
-        })
+        updateScope {
+            completion()
+        }
+    }
+    
+    @objc func handleRefresh() {
+        updateScope { [self] in
+            refreshControl.endRefreshing()
+        }
     }
 }
