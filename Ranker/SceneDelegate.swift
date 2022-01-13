@@ -34,6 +34,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.rootViewController = LaunchViewController()
         }
         
+        if let response = connectionOptions.notificationResponse,
+           let id = response.notification.request.content.userInfo["pollId"] as? String {
+            launchedWithID = (true, id)
+        }
+        
         window?.makeKeyAndVisible()
     }
 

@@ -24,14 +24,12 @@ class ProfileViewController: UIViewController {
         let table = FeedTableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         let db = Firestore.firestore()
-        db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { polls in
-            if let polls = polls {
-                table.model = FeedTableViewModel(
-                    polls: polls.filter({ $0.getPollStatus() == .posted }),
-                    emptyStateModel: EmptyStateModel(emptyType: .profile, delegate: self)
-                )
-            }
-        })
+        getTableModel { polls in
+            table.model = FeedTableViewModel(
+                polls: polls,
+                emptyStateModel: EmptyStateModel(emptyType: .profile, delegate: self)
+            )
+        }
         return table
     }()
 
@@ -39,6 +37,12 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if launchedWithID.0 {
+            table.flashFirstCell()
+        }
     }
     
     func setupView() {
@@ -56,6 +60,28 @@ class ProfileViewController: UIViewController {
         table.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         table.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
+    }
+    
+    func getTableModel(completion: @escaping ([Poll]) -> Void) {
+        let db = Firestore.firestore()
+        db.getAll(collectionName: .polls, decodeInto: [Poll.self], completion: { polls in
+            if let polls = polls {
+                switch launchedWithID.0 {
+                case true:
+                    if let elementWithId = polls.filter({ $0.id == launchedWithID.1 }).first {
+                        var filteredPolls = polls.filter({ $0.id != launchedWithID.1 })
+                        filteredPolls.insert(elementWithId, at: 0)
+                        completion(filteredPolls)
+                    } else {
+                        completion([])
+                    }
+                case false:
+                    completion(polls.filter({ $0.getPollStatus() == .posted }))
+                }
+            } else {
+                completion([])
+            }
+        })
     }
 }
 

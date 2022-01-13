@@ -77,8 +77,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view
         UserDefaults.standard.set(true, forKey: Launch.hasLaunched.rawValue)
+        NotificationCenter.default.addObserver(self, selector: #selector(checkForRemoteStart), name: UIApplication.willEnterForegroundNotification, object: nil)
         setupView()
         setupConstraints()
+    }
+    
+    @objc func checkForRemoteStart() {
+        if launchedWithID.0 {
+            profileTapped()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if launchedWithID.0 {
+            profileTapped()
+        }
     }
     
     func setupView() {

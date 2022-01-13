@@ -97,6 +97,18 @@ class FeedTableView: UIView {
             tableView.reloadData()
         }
     }
+    
+    func flashFirstCell() {
+        if let cell = tableView.visibleCells.first {
+            UIView.animate(withDuration: 0.2, animations: {
+                cell.contentView.backgroundColor = .lightGray
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.4, animations: {
+                    cell.contentView.backgroundColor = .clear
+                })
+            })
+        }
+    }
 }
 
 extension FeedTableView: UITableViewDelegate, UITableViewDataSource {
@@ -109,7 +121,6 @@ extension FeedTableView: UITableViewDelegate, UITableViewDataSource {
             if let cell = tableView.dequeueReusableCell(withIdentifier: votedCellId, for: indexPath) as? VotedPollCell {
                 cell.delegate = model.cellDelegate
                 cell.model = model.polls[indexPath.row]
-                cell.selectionStyle = .none
                 return cell
             }
         } else {

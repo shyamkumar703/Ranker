@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAnalytics
 import FirebaseMessaging
 
 enum UID: String {
@@ -55,9 +56,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // Messaging delegate
         Messaging.messaging().delegate = self
-
         
         return true
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if let id = response.notification.request.content.userInfo["pollId"] as? String {
+            launchedWithID = (true, id)
+        }
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
@@ -69,8 +75,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         object: nil,
         userInfo: dataDict
       )
-      // TODO: If necessary send token to application server.
-      // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
 
     // MARK: UISceneSession Lifecycle

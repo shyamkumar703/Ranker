@@ -11,6 +11,8 @@ import UIKit
 
 let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
 
+var launchedWithID: (Bool, String) = (false, "")
+
 func feedback() {
     feedbackGenerator.prepare()
     feedbackGenerator.impactOccurred()
