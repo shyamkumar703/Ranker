@@ -40,9 +40,9 @@
 		01D29EF8278F485300CEC599 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D29EF7278F485300CEC599 /* LaunchViewController.swift */; };
 		01D94E8C278D4CC300071FAB /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D94E8B278D4CC300071FAB /* BarChart.swift */; };
 		01D94E8E278D4E6A00071FAB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D94E8D278D4E6A00071FAB /* ProfileViewController.swift */; };
-		20564B98A7FE4D1A8A74987C /* Pods_Ranker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED6F6B532A09D2C11559831 /* Pods_Ranker.framework */; };
-		6216E64B35EA8BD3F0D0ECF1 /* Pods_Ranker_RankerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC98ED9F488D7154BD5EB2A /* Pods_Ranker_RankerUITests.framework */; };
-		AC15D31AF9845D6A7247DE7B /* Pods_RankerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE6F44786958DD55873C3EC /* Pods_RankerTests.framework */; };
+		521B677025B8DA837F4B8021 /* Pods_Rankr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB5B453952EDBA7E54CB73 /* Pods_Rankr.framework */; };
+		C2E60F54B803570A3ABFBDD1 /* Pods_Rankr_RankrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD90D48F65ADD9FEAE90A535 /* Pods_Rankr_RankrUITests.framework */; };
+		DE82AC88CE49FBAE0ED51737 /* Pods_RankrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB268901FFD7E517B224B3E /* Pods_RankrTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,21 +77,22 @@
 		0163294B2785801C0050A006 /* CreatePollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePollViewController.swift; sourceTree = "<group>"; };
 		0163294D278581DC0050A006 /* CreatePollTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePollTableView.swift; sourceTree = "<group>"; };
 		0163294F27858A800050A006 /* ColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelector.swift; sourceTree = "<group>"; };
+		01A2FD07278FD2ED0092DC2C /* Rankr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rankr.entitlements; sourceTree = "<group>"; };
 		01A6F352270575E000E561A0 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		01A6F355270577B500E561A0 /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
 		01A6F357270577C600E561A0 /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
 		01A6F3592705780A00E561A0 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		01AE71C326FEA38D006C1EFC /* Ranker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ranker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01AE71C326FEA38D006C1EFC /* Rankr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rankr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01AE71C626FEA38D006C1EFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01AE71C826FEA38D006C1EFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		01AE71CA26FEA38D006C1EFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		01AE71CF26FEA39C006C1EFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01AE71D226FEA39C006C1EFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01AE71D426FEA39C006C1EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		01AE71D926FEA39D006C1EFC /* RankerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RankerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01AE71D926FEA39D006C1EFC /* RankrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RankrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01AE71DD26FEA39D006C1EFC /* RankerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankerTests.swift; sourceTree = "<group>"; };
 		01AE71DF26FEA39D006C1EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		01AE71E426FEA39D006C1EFC /* RankerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RankerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01AE71E426FEA39D006C1EFC /* RankrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RankrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01AE71E826FEA39D006C1EFC /* RankerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankerUITests.swift; sourceTree = "<group>"; };
 		01AE71EA26FEA39D006C1EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01AE71F626FEB0CA006C1EFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -102,15 +103,21 @@
 		01D29EF7278F485300CEC599 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		01D94E8B278D4CC300071FAB /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
 		01D94E8D278D4E6A00071FAB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		08FB5B453952EDBA7E54CB73 /* Pods_Rankr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rankr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		09FCA30A30B297C70AF5D013 /* Pods-Rankr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rankr.debug.xcconfig"; path = "Target Support Files/Pods-Rankr/Pods-Rankr.debug.xcconfig"; sourceTree = "<group>"; };
 		0BC6A3866D9067D01952069A /* Pods-Ranker-RankerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranker-RankerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Ranker-RankerUITests/Pods-Ranker-RankerUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		0DC98ED9F488D7154BD5EB2A /* Pods_Ranker_RankerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ranker_RankerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D1C28973108D00F70C83305 /* Pods-Rankr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rankr.release.xcconfig"; path = "Target Support Files/Pods-Rankr/Pods-Rankr.release.xcconfig"; sourceTree = "<group>"; };
+		1E7CBC5FD6F7E31E43BDDFDE /* Pods-RankrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RankrTests.debug.xcconfig"; path = "Target Support Files/Pods-RankrTests/Pods-RankrTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3781214B3CC1FA5C453FBA23 /* Pods-RankrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RankrTests.release.xcconfig"; path = "Target Support Files/Pods-RankrTests/Pods-RankrTests.release.xcconfig"; sourceTree = "<group>"; };
 		39AEA4E33548B09D374732A1 /* Pods-Ranker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranker.debug.xcconfig"; path = "Target Support Files/Pods-Ranker/Pods-Ranker.debug.xcconfig"; sourceTree = "<group>"; };
+		47741D25D35380B73E9A9481 /* Pods-Rankr-RankrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rankr-RankrUITests.debug.xcconfig"; path = "Target Support Files/Pods-Rankr-RankrUITests/Pods-Rankr-RankrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		657A368CEFC3C3616D6BA2CC /* Pods-RankerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RankerTests.debug.xcconfig"; path = "Target Support Files/Pods-RankerTests/Pods-RankerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7A90973CF9944AC8ABECA76 /* Pods-Ranker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranker.release.xcconfig"; path = "Target Support Files/Pods-Ranker/Pods-Ranker.release.xcconfig"; sourceTree = "<group>"; };
-		BED6F6B532A09D2C11559831 /* Pods_Ranker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ranker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD90D48F65ADD9FEAE90A535 /* Pods_Rankr_RankrUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rankr_RankrUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D149C1902FAA2DCDCDD47572 /* Pods-RankerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RankerTests.release.xcconfig"; path = "Target Support Files/Pods-RankerTests/Pods-RankerTests.release.xcconfig"; sourceTree = "<group>"; };
 		D318ED5B14507D47DD2A32BE /* Pods-Ranker-RankerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranker-RankerUITests.release.xcconfig"; path = "Target Support Files/Pods-Ranker-RankerUITests/Pods-Ranker-RankerUITests.release.xcconfig"; sourceTree = "<group>"; };
-		EAE6F44786958DD55873C3EC /* Pods_RankerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RankerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFB268901FFD7E517B224B3E /* Pods_RankrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RankrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBBC2270C4B2FD686F09B6E6 /* Pods-Rankr-RankrUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rankr-RankrUITests.release.xcconfig"; path = "Target Support Files/Pods-Rankr-RankrUITests/Pods-Rankr-RankrUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20564B98A7FE4D1A8A74987C /* Pods_Ranker.framework in Frameworks */,
+				521B677025B8DA837F4B8021 /* Pods_Rankr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC15D31AF9845D6A7247DE7B /* Pods_RankerTests.framework in Frameworks */,
+				DE82AC88CE49FBAE0ED51737 /* Pods_RankrTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6216E64B35EA8BD3F0D0ECF1 /* Pods_Ranker_RankerUITests.framework in Frameworks */,
+				C2E60F54B803570A3ABFBDD1 /* Pods_Rankr_RankrUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +200,7 @@
 		01AE71BA26FEA38D006C1EFC = {
 			isa = PBXGroup;
 			children = (
+				01A2FD07278FD2ED0092DC2C /* Rankr.entitlements */,
 				01AE71C526FEA38D006C1EFC /* Ranker */,
 				01AE71DC26FEA39D006C1EFC /* RankerTests */,
 				01AE71E726FEA39D006C1EFC /* RankerUITests */,
@@ -205,9 +213,9 @@
 		01AE71C426FEA38D006C1EFC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				01AE71C326FEA38D006C1EFC /* Ranker.app */,
-				01AE71D926FEA39D006C1EFC /* RankerTests.xctest */,
-				01AE71E426FEA39D006C1EFC /* RankerUITests.xctest */,
+				01AE71C326FEA38D006C1EFC /* Rankr.app */,
+				01AE71D926FEA39D006C1EFC /* RankrTests.xctest */,
+				01AE71E426FEA39D006C1EFC /* RankrUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -269,6 +277,12 @@
 				D318ED5B14507D47DD2A32BE /* Pods-Ranker-RankerUITests.release.xcconfig */,
 				657A368CEFC3C3616D6BA2CC /* Pods-RankerTests.debug.xcconfig */,
 				D149C1902FAA2DCDCDD47572 /* Pods-RankerTests.release.xcconfig */,
+				09FCA30A30B297C70AF5D013 /* Pods-Rankr.debug.xcconfig */,
+				1D1C28973108D00F70C83305 /* Pods-Rankr.release.xcconfig */,
+				47741D25D35380B73E9A9481 /* Pods-Rankr-RankrUITests.debug.xcconfig */,
+				FBBC2270C4B2FD686F09B6E6 /* Pods-Rankr-RankrUITests.release.xcconfig */,
+				1E7CBC5FD6F7E31E43BDDFDE /* Pods-RankrTests.debug.xcconfig */,
+				3781214B3CC1FA5C453FBA23 /* Pods-RankrTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -276,9 +290,9 @@
 		7F69E3765DCBF3D5F8C5E6E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BED6F6B532A09D2C11559831 /* Pods_Ranker.framework */,
-				0DC98ED9F488D7154BD5EB2A /* Pods_Ranker_RankerUITests.framework */,
-				EAE6F44786958DD55873C3EC /* Pods_RankerTests.framework */,
+				08FB5B453952EDBA7E54CB73 /* Pods_Rankr.framework */,
+				CD90D48F65ADD9FEAE90A535 /* Pods_Rankr_RankrUITests.framework */,
+				EFB268901FFD7E517B224B3E /* Pods_RankrTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -286,9 +300,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		01AE71C226FEA38D006C1EFC /* Ranker */ = {
+		01AE71C226FEA38D006C1EFC /* Rankr */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 01AE71ED26FEA39D006C1EFC /* Build configuration list for PBXNativeTarget "Ranker" */;
+			buildConfigurationList = 01AE71ED26FEA39D006C1EFC /* Build configuration list for PBXNativeTarget "Rankr" */;
 			buildPhases = (
 				12F19A7D58408711DCB4F4D0 /* [CP] Check Pods Manifest.lock */,
 				01AE71BF26FEA38D006C1EFC /* Sources */,
@@ -300,14 +314,14 @@
 			);
 			dependencies = (
 			);
-			name = Ranker;
+			name = Rankr;
 			productName = Ranker;
-			productReference = 01AE71C326FEA38D006C1EFC /* Ranker.app */;
+			productReference = 01AE71C326FEA38D006C1EFC /* Rankr.app */;
 			productType = "com.apple.product-type.application";
 		};
-		01AE71D826FEA39D006C1EFC /* RankerTests */ = {
+		01AE71D826FEA39D006C1EFC /* RankrTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 01AE71F026FEA39D006C1EFC /* Build configuration list for PBXNativeTarget "RankerTests" */;
+			buildConfigurationList = 01AE71F026FEA39D006C1EFC /* Build configuration list for PBXNativeTarget "RankrTests" */;
 			buildPhases = (
 				EF8D3C44555F1A1FFE89EFDD /* [CP] Check Pods Manifest.lock */,
 				01AE71D526FEA39D006C1EFC /* Sources */,
@@ -319,14 +333,14 @@
 			dependencies = (
 				01AE71DB26FEA39D006C1EFC /* PBXTargetDependency */,
 			);
-			name = RankerTests;
+			name = RankrTests;
 			productName = RankerTests;
-			productReference = 01AE71D926FEA39D006C1EFC /* RankerTests.xctest */;
+			productReference = 01AE71D926FEA39D006C1EFC /* RankrTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		01AE71E326FEA39D006C1EFC /* RankerUITests */ = {
+		01AE71E326FEA39D006C1EFC /* RankrUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 01AE71F326FEA39D006C1EFC /* Build configuration list for PBXNativeTarget "RankerUITests" */;
+			buildConfigurationList = 01AE71F326FEA39D006C1EFC /* Build configuration list for PBXNativeTarget "RankrUITests" */;
 			buildPhases = (
 				C0512D4B7B7B52276ECD8239 /* [CP] Check Pods Manifest.lock */,
 				01AE71E026FEA39D006C1EFC /* Sources */,
@@ -339,9 +353,9 @@
 			dependencies = (
 				01AE71E626FEA39D006C1EFC /* PBXTargetDependency */,
 			);
-			name = RankerUITests;
+			name = RankrUITests;
 			productName = RankerUITests;
-			productReference = 01AE71E426FEA39D006C1EFC /* RankerUITests.xctest */;
+			productReference = 01AE71E426FEA39D006C1EFC /* RankrUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -366,7 +380,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 01AE71BE26FEA38D006C1EFC /* Build configuration list for PBXProject "Ranker" */;
+			buildConfigurationList = 01AE71BE26FEA38D006C1EFC /* Build configuration list for PBXProject "Rankr" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -379,9 +393,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				01AE71C226FEA38D006C1EFC /* Ranker */,
-				01AE71D826FEA39D006C1EFC /* RankerTests */,
-				01AE71E326FEA39D006C1EFC /* RankerUITests */,
+				01AE71C226FEA38D006C1EFC /* Rankr */,
+				01AE71D826FEA39D006C1EFC /* RankrTests */,
+				01AE71E326FEA39D006C1EFC /* RankrUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -432,7 +446,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Ranker-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Rankr-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -445,15 +459,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ranker/Pods-Ranker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Rankr/Pods-Rankr-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ranker/Pods-Ranker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Rankr/Pods-Rankr-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ranker/Pods-Ranker-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rankr/Pods-Rankr-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		930751EEF8654259D5542C6E /* [CP] Embed Pods Frameworks */ = {
@@ -462,15 +476,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ranker-RankerUITests/Pods-Ranker-RankerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Rankr-RankrUITests/Pods-Rankr-RankrUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ranker-RankerUITests/Pods-Ranker-RankerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Rankr-RankrUITests/Pods-Rankr-RankrUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ranker-RankerUITests/Pods-Ranker-RankerUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rankr-RankrUITests/Pods-Rankr-RankrUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C0512D4B7B7B52276ECD8239 /* [CP] Check Pods Manifest.lock */ = {
@@ -488,7 +502,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Ranker-RankerUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Rankr-RankrUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -510,7 +524,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RankerTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RankrTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -573,12 +587,12 @@
 /* Begin PBXTargetDependency section */
 		01AE71DB26FEA39D006C1EFC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 01AE71C226FEA38D006C1EFC /* Ranker */;
+			target = 01AE71C226FEA38D006C1EFC /* Rankr */;
 			targetProxy = 01AE71DA26FEA39D006C1EFC /* PBXContainerItemProxy */;
 		};
 		01AE71E626FEA39D006C1EFC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 01AE71C226FEA38D006C1EFC /* Ranker */;
+			target = 01AE71C226FEA38D006C1EFC /* Rankr */;
 			targetProxy = 01AE71E526FEA39D006C1EFC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -713,10 +727,11 @@
 		};
 		01AE71EE26FEA39D006C1EFC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 39AEA4E33548B09D374732A1 /* Pods-Ranker.debug.xcconfig */;
+			baseConfigurationReference = 09FCA30A30B297C70AF5D013 /* Pods-Rankr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Rankr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PM79C3BXFD;
 				INFOPLIST_FILE = Ranker/Info.plist;
@@ -724,7 +739,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shyamkumar.Ranker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shyamkumar.Rankr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -733,10 +748,11 @@
 		};
 		01AE71EF26FEA39D006C1EFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7A90973CF9944AC8ABECA76 /* Pods-Ranker.release.xcconfig */;
+			baseConfigurationReference = 1D1C28973108D00F70C83305 /* Pods-Rankr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Rankr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PM79C3BXFD;
 				INFOPLIST_FILE = Ranker/Info.plist;
@@ -744,7 +760,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shyamkumar.Ranker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shyamkumar.Rankr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -753,7 +769,7 @@
 		};
 		01AE71F126FEA39D006C1EFC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 657A368CEFC3C3616D6BA2CC /* Pods-RankerTests.debug.xcconfig */;
+			baseConfigurationReference = 1E7CBC5FD6F7E31E43BDDFDE /* Pods-RankrTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -770,13 +786,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ranker.app/Ranker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rankr.app/Rankr";
 			};
 			name = Debug;
 		};
 		01AE71F226FEA39D006C1EFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D149C1902FAA2DCDCDD47572 /* Pods-RankerTests.release.xcconfig */;
+			baseConfigurationReference = 3781214B3CC1FA5C453FBA23 /* Pods-RankrTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -793,13 +809,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ranker.app/Ranker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rankr.app/Rankr";
 			};
 			name = Release;
 		};
 		01AE71F426FEA39D006C1EFC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BC6A3866D9067D01952069A /* Pods-Ranker-RankerUITests.debug.xcconfig */;
+			baseConfigurationReference = 47741D25D35380B73E9A9481 /* Pods-Rankr-RankrUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -820,7 +836,7 @@
 		};
 		01AE71F526FEA39D006C1EFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D318ED5B14507D47DD2A32BE /* Pods-Ranker-RankerUITests.release.xcconfig */;
+			baseConfigurationReference = FBBC2270C4B2FD686F09B6E6 /* Pods-Rankr-RankrUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -842,7 +858,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		01AE71BE26FEA38D006C1EFC /* Build configuration list for PBXProject "Ranker" */ = {
+		01AE71BE26FEA38D006C1EFC /* Build configuration list for PBXProject "Rankr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				01AE71EB26FEA39D006C1EFC /* Debug */,
@@ -851,7 +867,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		01AE71ED26FEA39D006C1EFC /* Build configuration list for PBXNativeTarget "Ranker" */ = {
+		01AE71ED26FEA39D006C1EFC /* Build configuration list for PBXNativeTarget "Rankr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				01AE71EE26FEA39D006C1EFC /* Debug */,
@@ -860,7 +876,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		01AE71F026FEA39D006C1EFC /* Build configuration list for PBXNativeTarget "RankerTests" */ = {
+		01AE71F026FEA39D006C1EFC /* Build configuration list for PBXNativeTarget "RankrTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				01AE71F126FEA39D006C1EFC /* Debug */,
@@ -869,7 +885,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		01AE71F326FEA39D006C1EFC /* Build configuration list for PBXNativeTarget "RankerUITests" */ = {
+		01AE71F326FEA39D006C1EFC /* Build configuration list for PBXNativeTarget "RankrUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				01AE71F426FEA39D006C1EFC /* Debug */,

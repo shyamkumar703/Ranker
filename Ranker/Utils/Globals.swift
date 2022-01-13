@@ -5,6 +5,7 @@
 //  Created by Shyam Kumar on 1/4/22.
 //
 
+import FirebaseMessaging
 import Foundation
 import UIKit
 
@@ -13,6 +14,12 @@ let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
 func feedback() {
     feedbackGenerator.prepare()
     feedbackGenerator.impactOccurred()
+}
+
+func getDeviceToken(completion: @escaping (String?) -> Void) {
+    Messaging.messaging().token { token, error in
+      completion(token)
+    }
 }
 
 protocol Reloadable {

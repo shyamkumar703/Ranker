@@ -67,12 +67,15 @@ extension Firestore  {
         object: T,
         completion: @escaping () -> Void
     ) where T: DictDecode {
-        collection(collectionName.name).document(object.id).setData(object.objectToDict()) { err in
-            if let err = err {
-                print(err)
-                // error handle here
+        getDeviceToken { [self] token in
+            var objectDict = object.objectToDict()
+            objectDict["deviceId"] = token
+            collection(collectionName.name).document(object.id).setData(objectDict) { err in
+                if let err = err {
+                    print(err)
+                }
+                completion()
             }
-            completion()
         }
     }
     

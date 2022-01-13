@@ -36,6 +36,7 @@ class Poll: Codable, Identifiable, DictDecode {
     var latitude: Double?
     var longitude: Double?
     var votes: [Vote]
+    var deviceId: String
     
     init(
         postedBy: String = "",
@@ -43,13 +44,15 @@ class Poll: Codable, Identifiable, DictDecode {
         question: String = "",
         choices: [PollChoice] = [],
         date: Date = Date(),
-        votes: [Vote] = []
+        votes: [Vote] = [],
+        deviceId: String = ""
     ) {
         self.postedBy = postedBy
         self.id = id
         self.question = question
         self.choices = choices
         self.date = date
+        self.deviceId = ""
         
         let locationManager = CLLocationManager()
         locationManager.startUpdatingLocation()
@@ -70,6 +73,7 @@ class Poll: Codable, Identifiable, DictDecode {
         case latitude
         case longitude
         case votes
+        case deviceId
     }
     
     func shouldIncludeInLocalFeed(currentLocation: CLLocation) -> Bool {
@@ -96,10 +100,11 @@ class Poll: Codable, Identifiable, DictDecode {
     private static func unwrap(poll: inout Poll, dict: [String: Any]) {
         Utils.unwrap(
             object: &poll,
-            paths: [\.postedBy, \.id, \.question],
+            paths: [\.postedBy, \.id, \.question, \.deviceId],
             dict[Keys.postedBy.rawValue],
             dict[Keys.id.rawValue],
-            dict[Keys.question.rawValue]
+            dict[Keys.question.rawValue],
+            dict[Keys.deviceId.rawValue]
         )
         
         if let voteArr = dict[Keys.votes.rawValue] as? [[String: Any]] {
@@ -136,9 +141,10 @@ class Poll: Codable, Identifiable, DictDecode {
     }
     
     func addVote(vote: Vote) {
-        votes.append(vote)
-        let db = Firestore.firestore()
-        db.update(collectionName: .polls, object: self)
+        let dbRef = Firestore.firestore().collection(Collections.polls.name).document(self.id)
+        dbRef.updateData([
+            Keys.votes.rawValue: FieldValue.arrayUnion([vote.objectToDict()])
+        ])
     }
     
     func getPollStatus() -> PollStatus {
